@@ -2,13 +2,14 @@
 
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import ExperienceSection from "@/components/ExperienceSection";
 
 export default function Home() {
   return (
     <div className="font-sans relative">
       <HeroSection className="sticky top-0 h-screen" />
       <AboutSection className="sticky top-0 h-screen rounded-t-3xl" />
-      <AboutSection className="sticky top-0 rounded-t-3xl" />
+      <ExperienceSection className="sticky top-0 rounded-t-3xl" />
     </div>
   );
 }
