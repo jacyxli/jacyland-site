@@ -23,8 +23,8 @@ const experienceData: Job[] = [
     name: "ClassPass",
     position: "Senior Software Engineer",
     location: "Remote/Hangzhou, China",
-    startDate: "2022-12",
-    endDate: "2024-12",
+    startDate: "Dec 2022",
+    endDate: "Dec 2024",
     summary:
       "Feature owner and fullstack engineer in the China squad, responsible for the ClassPass WeChat mini-program and internal admin portal. Led end-to-end feature development and cross-functional coordination with product, design, and marketing teams to serve mainland Chinese users.",
     techStack:
@@ -34,33 +34,32 @@ const experienceData: Job[] = [
       "Collaborated with cross-functional stakeholders to define scope and deliver weekly releases aligned with product goals",
       "Built and maintained internal tools on the ClassPass Admin platform using React + Ktor to support operations and data management",
       "Introduced and maintained frontend automated testing using Tencent Cloud Test (云测), improving test coverage and reducing regressions",
-      "Led frontend refactoring - standardized design tokens, colors, and components across mini-program and admin portal for brand consistency",
+      "Led frontend refactoring: standardized design tokens, colors, and components across mini-program and admin portal for brand consistency",
     ],
   },
   {
     name: "Vantage Management",
     position: "Fullstack Software Engineer",
     location: "Remote/Tokyo, Japan",
-    startDate: "2018-04",
-    endDate: "2022-05",
+    startDate: "Apr 2018",
+    endDate: "May 2022",
     summary:
       "Lead engineer for two SaaS platforms: Keyman Letter (formerly Posto), a direct mail marketing automation platform; and Keyman Database, a B2B data-as-a-service product.",
     techStack: "React, Gatsby.js, Laravel, MySQL, Docker, CI/CD, AWS",
     highlights: [
-      "Built the frontend from scratch with React, including a custom WYSIWYG SVG editor",
+      "Keyman Letter (Posto): Built the frontend from scratch with React, including a custom WYSIWYG SVG editor",
       "Designed and implemented backend features in Laravel, including a Salesforce CRM integration for syncing standard and custom objects",
-      "Managed database schema changes and data layer logic",
-      "Took on UI/UX ownership in the absence of a dedicated designer during the final year",
-      "Built the entire frontend using Gatsby.js and developed REST APIs to serve data crawled from web sources",
-      "Doubled the amount of crawled personnel through crawler optimization",
+      "Managed database schema changes and data layer logic, and took on UI/UX ownership in the absence of a dedicated designer",
+      "Keyman Database: Built the entire frontend using Gatsby.js and developed REST APIs to serve data crawled from web sources",
+      "Doubled the amount of crawled personnel through crawler optimization and collaborated with SEO specialist for technical enhancements",
     ],
   },
   {
     name: "NetApp",
-    position: "Backend Software Engineer on the FlashRay Storage Team",
+    position: "Backend Software Engineer, FlashRay Storage Team",
     location: "Sunnyvale, CA, USA",
-    startDate: "2014-08",
-    endDate: "2017-10",
+    startDate: "Aug 2014",
+    endDate: "Oct 2017",
     summary:
       "Developed the FlashRay Setup Wizard for turnkey installation of NetApp's All Flash Array storage system. Built system management features via REST APIs and Jetty web server components.",
     techStack: "Java, REST APIs, Jetty, Python, Automated Testing",
@@ -74,8 +73,8 @@ const experienceData: Job[] = [
     name: "Freelance Developer & UI Developer",
     position: "Freelance Fullstack Developer & Designer",
     location: "Remote",
-    startDate: "2014-01",
-    endDate: "2024-12",
+    startDate: "2014",
+    endDate: "Present",
     summary:
       "Designed and developed small-scale web projects for individuals and small businesses, focusing on frontend implementation and UI/UX design. Work includes personal websites, static content archives, internal tools, and casual games.",
     techStack:
@@ -96,22 +95,22 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
         className ?? ""
       }`}
     >
-       <div className="w-full mx-auto">
-         <MotionP
-           className="font-anton text-3xl sm:text-5xl font-bold mb-4 text-left"
-           delay={0.1}
-         >
-           Experience
-         </MotionP>
-         
-         {/* Divider */}
-         <motion.div
-           className="w-full h-px bg-gray-300 mb-16"
-           initial={{ scaleX: 0 }}
-           whileInView={{ scaleX: 1 }}
-           viewport={{ once: true }}
-           transition={{ delay: 0.2, duration: 0.8 }}
-         />
+      <div className="w-full mx-auto">
+        <MotionP
+          className="font-anton text-3xl sm:text-6xl font-bold mb-4 text-left"
+          delay={0.1}
+        >
+          Experience
+        </MotionP>
+
+        {/* Divider */}
+        <motion.div
+          className="w-full h-px bg-gray-900 my-16"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        />
 
         <div className="space-y-8">
           {experienceData.map((job, index) => (
