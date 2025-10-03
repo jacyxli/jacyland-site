@@ -8,6 +8,7 @@ export default function Home() {
     <div className="font-sans relative">
       <HeroSection className="sticky top-0 h-screen" />
       <AboutSection className="sticky top-0 h-screen rounded-t-3xl" />
+      <AboutSection className="sticky top-0 rounded-t-3xl" />
     </div>
   );
 }

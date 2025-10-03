@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { slowTransition } from "@/utils/motion";
+import MotionP from "./MotionP";
 
 const rotatingWords = [
   "Fullstack Engineer ",
@@ -46,11 +47,14 @@ const HeroSection = ({ className }: HeroSectionProps) => {
         Jacy Li
       </div>
       <div className="flex flex-col items-start gap-2 w-full">
-        <h2 className="font-anton text-5xl sm:text-8xl leading-tighter">
+        <MotionP
+          className="font-anton text-5xl sm:text-8xl leading-tighter"
+          delay={0.1}
+        >
           Turning coffee into code,
           <br />
           and problems into products.
-        </h2>
+        </MotionP>
 
         <div className="relative sm:h-16 h-12 w-full overflow-hidden mt-2 sm:mt-6 font-mono text-xl sm:text-4xl ">
           <AnimatePresence mode="popLayout" initial={false}>
