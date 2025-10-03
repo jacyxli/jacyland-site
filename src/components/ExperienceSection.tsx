@@ -28,7 +28,7 @@ const experienceData: Job[] = [
     summary:
       "Feature owner and fullstack engineer in the China squad, responsible for the ClassPass WeChat mini-program and internal admin portal. Led end-to-end feature development and cross-functional coordination with product, design, and marketing teams to serve mainland Chinese users.",
     techStack:
-      "WeChat mini-program (native), React, Kotlin, Spring Boot, Ktor, MySQL, Docker, CI/CD, AWS",
+      "WeChat mini-program (native), React, Kotlin, Java,Spring Boot, Ktor, MySQL, Docker, CI/CD, AWS",
     highlights: [
       "Owned and shipped end-to-end features on the ClassPass China WeChat mini-program, including User Referral flows, Coupon System, Workout Calendar, and Booking Reviews",
       "Collaborated with cross-functional stakeholders to define scope and deliver weekly releases aligned with product goals",
@@ -45,7 +45,8 @@ const experienceData: Job[] = [
     endDate: "May 2022",
     summary:
       "Lead engineer for two SaaS platforms: Keyman Letter (formerly Posto), a direct mail marketing automation platform; and Keyman Database, a B2B data-as-a-service product.",
-    techStack: "React, Gatsby.js, Laravel, MySQL, Docker, CI/CD, AWS",
+    techStack:
+      "React, Gatsby.js, Laravel, Elasticsearch, Python, MySQL, Docker, AWS",
     highlights: [
       "Keyman Letter (Posto): Built the frontend from scratch with React, including a custom WYSIWYG SVG editor",
       "Designed and implemented backend features in Laravel, including a Salesforce CRM integration for syncing standard and custom objects",
@@ -78,7 +79,7 @@ const experienceData: Job[] = [
     summary:
       "Designed and developed small-scale web projects for individuals and small businesses, focusing on frontend implementation and UI/UX design. Work includes personal websites, static content archives, internal tools, and casual games.",
     techStack:
-      "React, Gatsby.js, Next.js, Tailwind CSS, Material UI, Firebase, Ant Design, Vue.js, WebSocket",
+      "React, Gatsby.js, Next.js, Tailwind CSS, Firebase, Ant Design, Vue.js, WebSocket, Tencent Cloudbase",
     highlights: [
       "Built and deployed personal websites and blogs using React, Gatsby.js, Next.js, Tailwind CSS, and Material UI on Netlify",
       "Created a static archive site by crawling content from a defunct website and indexing it with Algolia for search",
@@ -105,7 +106,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
 
         {/* Divider */}
         <motion.div
-          className="w-full h-px bg-gray-900 my-16"
+          className="w-full h-px bg-gray-900 sm:my-16 mt-6 mb-4"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
@@ -126,14 +127,22 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
                 transition: { duration: 0.2 },
               }}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-8 p-6 sm:p-8 rounded-lg transition-all duration-300">
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap- sm:gap-8 py-4 px-2 sm:p-8 rounded-lg">
                 {/* Column 1: Time */}
-                <div className="text-left">
+                <div className="text-left whitespace-nowrap">
                   <MotionP
-                    className="text-sm sm:text-base font-mono text-gray-400"
+                    className="text-sm sm:text-base font-mono text-gray-400 flex items-center gap-2 "
                     delay={0.3 + index * 0.1}
                   >
-                    {job.startDate} — {job.endDate}
+                    <span>{job.startDate}</span>
+                    <div className="bg-gray-400 h-px w-2 group-hover:w-full transition-all duration-3000" />
+                    <span>{job.endDate}</span>
+                  </MotionP>
+                  <MotionP
+                    className="text-sm text-gray-500 mt-1"
+                    delay={0.35 + index * 0.1}
+                  >
+                    {job.location}
                   </MotionP>
                 </div>
 
@@ -141,20 +150,41 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
                 <div className="hidden sm:block"></div>
 
                 {/* Columns 3-4: Combined content */}
-                <div className="sm:col-span-2 flex flex-col gap-4">
+                <div className="sm:col-span-2 flex flex-col">
                   <MotionP
-                    className="font-bold text-lg sm:text-xl"
+                    className="font-bold text-lg sm:text-xl mb-4"
                     delay={0.4 + index * 0.1}
                   >
                     {job.position} · {job.name}
                   </MotionP>
 
                   <MotionP
-                    className="text-sm sm:text-base text-gray-600"
+                    className="text-sm sm:text-base text-gray-900"
                     delay={0.5 + index * 0.1}
                   >
                     {job.summary}
                   </MotionP>
+
+                  {/* Highlights */}
+                  <div className="mt-3">
+                    {job.highlights.map((highlight, highlightIndex) => (
+                      <motion.div
+                        key={highlightIndex}
+                        className="flex items-start gap-2 mb-2"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          delay: 0.6 + index * 0.1 + highlightIndex * 0.05,
+                        }}
+                      >
+                        <span className="text-gray-400 mt-1 text-sm">•</span>
+                        <span className="text-sm text-gray-600 leading-relaxed">
+                          {highlight}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
 
                   {/* Tech Stack Tags */}
                   <div className="flex flex-wrap gap-2 mt-2">
@@ -166,7 +196,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{
-                          delay: 0.6 + index * 0.1 + techIndex * 0.05,
+                          delay: 0.7 + index * 0.1 + techIndex * 0.05,
                         }}
                       >
                         {tech.trim()}

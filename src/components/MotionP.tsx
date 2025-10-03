@@ -14,7 +14,7 @@ const MotionP = ({
   children,
   className = "",
   delay = 0,
-  duration = 3,
+  duration = 1,
 }: MotionPProps) => {
   return (
     <motion.p
@@ -23,7 +23,6 @@ const MotionP = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{
-        ...defaultTransition,
         duration,
         delay,
       }}
