@@ -85,7 +85,7 @@ const experienceData: Job[] = [
 
 const ExperienceSection = ({ className }: ExperienceSectionProps) => {
   return (
-    <section className={`min-h-[100svh] bg-black text-white flex flex-col items-center justify-center px-6 py-24 sm:py-32 sm:px-12 ${className ?? ""}`}>
+    <section className={`min-h-[100svh] flex flex-col items-center justify-center px-6 py-24 sm:py-32 sm:px-12 ${className ?? ""}`}>
       <div className="w-full sm:max-w-6xl mx-auto">
         <MotionP className="font-anton text-3xl sm:text-5xl font-bold mb-16 text-center" delay={0.1}>
           Experience
@@ -101,7 +101,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.2 + (index * 0.1) }}
               whileHover={{ 
-                backgroundColor: "rgba(255, 255, 255, 0.05)",
+                backgroundColor: "rgba(0, 0, 0, 0.05)",
                 transition: { duration: 0.2 }
               }}
             >
@@ -122,7 +122,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
                     {job.position} · {job.name}
                   </MotionP>
                   
-                  <MotionP className="text-sm sm:text-base text-gray-300" delay={0.5 + (index * 0.1)}>
+                  <MotionP className="text-sm sm:text-base text-gray-600" delay={0.5 + (index * 0.1)}>
                     {job.summary}
                   </MotionP>
                   
@@ -131,7 +131,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
                     {job.techStack.split(', ').map((tech, techIndex) => (
                       <motion.span
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full border border-gray-700"
+                        className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full border border-gray-300"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
