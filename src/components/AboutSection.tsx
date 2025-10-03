@@ -17,9 +17,13 @@ const AboutSection = ({ className }: AboutSectionProps) => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end end"],
+    offset: ["start end", "end start"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["-100vw", "100vw"]);
+  // Infinite circular scroll effect
+  // scrollProgress 0: First "ABOUT ME" starts at left edge (x = 0%)
+  // scrollProgress 50: Text is partially visible, moving across
+  // scrollProgress 100: Text is centered (x = -50% to center the text)
+  const x = useTransform(scrollYProgress, [0, 1], ["100vw", "-100vw"]);
   useMotionValueEvent(x, "change", (latest) => {
     console.log("x:", latest);
   });
@@ -30,31 +34,55 @@ const AboutSection = ({ className }: AboutSectionProps) => {
   return (
     <motion.section
       ref={ref}
-      className={`min-h-[100svh] bg-black text-white flex flex-col items-center justify-center ${
+      className={`min-h-[100svh] bg-black text-white flex flex-col items-center justify-between px-6 py-24 sm:py-32 sm:px-12 ${
         className ?? ""
       }`}
     >
-      <motion.h1
-        className="text-3xl sm:text-5xl font-bold whitespace-nowrap"
-        style={{ x }}
-      >
-        About
-      </motion.h1>
-      <div className="max-w-2xl mx-auto text-center space-y-6 overflow-hidden">
-        <div className="px-6 py-24">
-          <p className="text-base sm:text-lg leading-relaxed opacity-90">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </p>
-          <p className="text-base sm:text-lg leading-relaxed opacity-90">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum. Curabitur non nulla sit
-            amet nisl tempus convallis quis ac lectus.
-          </p>
+      <div className="w-full ">
+        <motion.div className="flex justify-center overflow-hidden">
+          <motion.h1
+            className="font-anton text-5xl sm:text-[150px] font-bold whitespace-nowrap text-center"
+            style={{ x }}
+          >
+            ABOUT ME / ABOUT ME / ABOUT ME / ABOUT ME / ABOUT ME
+          </motion.h1>
+        </motion.div>
+      </div>
+      <div className="w-full sm:max-w-6xl mx-auto ">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-8">
+          {/* Column 1: Empty */}
+          <div className="hidden sm:block"></div>
+
+          {/* Column 2: Hey. I'm Jacy */}
+          <div className="text-left">
+            <p className="font-bold text-2xl">
+              <span className="opacity-60">Hey.</span> I'm Jacy.
+            </p>
+          </div>
+
+          {/* Columns 3-4: Combined content */}
+          <div className="sm:col-span-2 flex flex-col gap-4 text-sm sm:text-base opacity-90">
+            <p>
+              I'm a <b>fullstack engineer</b> with 10+ years of experience —
+              passionate about creating user-focused digital solutions that make
+              technology feel human.
+            </p>
+
+            <p>
+              I specialize in{" "}
+              <b>React, UI/UX design, and WeChat mini-programs</b>, with backend
+              expertise in <b>Kotlin, Spring Boot, and MySQL</b>. I've delivered
+              apps and platforms end-to-end — from Fortune 500 enterprises in
+              Silicon Valley to fast-moving startups in Tokyo. I also build apps
+              for small businesses, helping them digitalize workflows and
+              simplify daily operations.
+            </p>
+            <p>
+              Recently, I've been exploring how to integrate <b>AI</b> into
+              development workflows to boost productivity and accelerate product
+              innovation.
+            </p>
+          </div>
         </div>
       </div>
     </motion.section>

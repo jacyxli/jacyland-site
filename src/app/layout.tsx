@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Anton, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const anton = Anton({
+  variable: "--font-anton",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${anton.variable} ${spaceMono.variable} antialiased`}
+      >
         <Nav />
         {children}
       </body>
