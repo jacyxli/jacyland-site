@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import MotionP from "@/components/MotionP";
+import Link from "next/link";
 
 interface Job {
   name: string;
@@ -97,12 +98,37 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
       }`}
     >
       <div className="w-full mx-auto">
-        <MotionP
-          className="font-anton text-3xl sm:text-6xl font-bold mb-4 text-left"
-          delay={0.1}
-        >
-          Experience
-        </MotionP>
+        <div className="flex items-center justify-between mb-4">
+          <MotionP
+            className="font-anton text-3xl sm:text-6xl font-bold"
+            delay={0.1}
+          >
+            Experience
+          </MotionP>
+          
+          <Link href="/resume" target="_blank">
+            <motion.button
+              className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              Download Resume
+            </motion.button>
+          </Link>
+        </div>
 
         {/* Divider */}
         <motion.div
