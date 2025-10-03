@@ -8,6 +8,7 @@ interface MotionPProps {
   className?: string;
   delay?: number;
   duration?: number;
+  as?: "p" | "div";
 }
 
 const MotionP = ({
@@ -15,9 +16,12 @@ const MotionP = ({
   className = "",
   delay = 0,
   duration = 1,
+  as = "p",
 }: MotionPProps) => {
+  const MotionComponent = as === "p" ? motion.p : motion.div;
+
   return (
-    <motion.p
+    <MotionComponent
       className={className}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +32,7 @@ const MotionP = ({
       }}
     >
       {children}
-    </motion.p>
+    </MotionComponent>
   );
 };
 

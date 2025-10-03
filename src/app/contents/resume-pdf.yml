@@ -3,83 +3,72 @@ meta:
 
 basics:
   name: Jacy Li (李心安)
-  label: PRODUCT-FOCUSED FULLSTACK ENGINEER | REACT, KOTLIN, UI/UX, MINI-PROGRAMS, AND INTERNAL TOOLING
+  label: Multilingual Fullstack Engineer & Product Consultant | 10+ Years of Experience Aligning Technology, UX, and Business Needs
   location:
     city: Hangzhou
     country: China
   email: jacy.li@outlook.com
-  phone: ++86 13957124341
-  github: github.com/jacyli
+  phone: +86 13957124341
+  github: https://github.com/jacyxli
+  website: https://jacy-li.com
 
 work:
   - name: ClassPass
     position: Senior Software Engineer
     location: Remote/Hangzhou, China
-    startDate: "2022-12"
-    endDate: "2024-12"
-    summary: "Feature owner and fullstack engineer in the China squad, responsible for the ClassPass WeChat mini-program and internal admin portal. Led end-to-end feature development and cross-functional coordination with product, design, and marketing teams to serve mainland Chinese users."
-    techStack: "WeChat mini-program (native), React, Kotlin, Spring Boot, Ktor, MySQL, Docker, CI/CD, AWS"
+    startDate: "2022.12"
+    endDate: "2024.12"
+    techStack: "WeChat Mini-Program (Native), React, Spring Boot, Ktor, MySQL, Docker, CI/CD, AWS"
+    summary: "Feature owner and fullstack engineer for ClassPass China’s WeChat mini-program and internal admin portal, delivering features end-to-end in a fast-paced, cross-functional team."
     highlights:
-      - Owned and shipped end-to-end features on the ClassPass China WeChat mini-program, including User Referral flows, Coupon System, Workout Calendar, and Booking Reviews
-      - Collaborated with cross-functional stakeholders to define scope and deliver weekly releases aligned with product goals
-      - Built and maintained internal tools on the ClassPass Admin platform using React + Ktor to support operations and data management
-      - Introduced and maintained frontend automated testing using Tencent Cloud Test (云测), improving test coverage and reducing regressions
-      - Led frontend refactoring - standardized design tokens, colors, and components across mini-program and admin portal for brand consistency
+      - "Shipped key user-facing features (Referrals, Coupons, Workout Calendar, Booking Reviews) for the China mini-program"
+      - "Built internal tools using React + Ktor to streamline data workflows"
+      - "Led frontend refactoring to improve brand consistency via standardized design tokens and reusable components"
+      - "Introduced test automation with Tencent Cloud Test, improving coverage and reducing regressions"
+      - "Scoped and coordinated weekly releases with product, design, and marketing teams"
 
   - name: Vantage Management
     position: Fullstack Software Engineer
     location: Remote/Tokyo, Japan
-    startDate: "2018-04"
-    endDate: "2022-05"
-    techStack:
-      - React
-      - Gatsby.js
-      - Laravel
-      - MySQL
-      - Docker
-      - CI/CD
-      - AWS
-    summary: "Lead engineer for two SaaS platforms: Keyman Letter (formerly Posto), a direct mail marketing automation platform; and Keyman Database, a B2B data-as-a-service product."
+    startDate: "2018.04"
+    endDate: "2022.05"
+    techStack: "React, Gatsby.js, Laravel, MySQL, Docker, CI/CD, AWS, Elasticsearch"
+    summary: "Lead engineer for two B2B SaaS platforms: Keyman Letter (direct mail automation) and Keyman Database (company personnel intelligence platform)."
     highlights:
-      - For Keyman Letter (formerly Posto)
-        - Built the frontend from scratch with React, including a custom WYSIWYG SVG editor
-        - Designed and implemented backend features in Laravel, including a Salesforce CRM integration for syncing standard and custom objects
-        - Managed database schema changes and data layer logic
-        - Took on UI/UX ownership in the absence of a dedicated designer during the final year
-      - For Keyman Database
-        - Built the entire frontend using Gatsby.js and developed REST APIs to serve data crawled from web sources
-        - Doubled the amount of crawled personnel through crawler optimization
-        - Collaborated with an SEO specialist to improve search rankings via technical SEO enhancements
+      - "Built frontend interfaces from scratch using React and Gatsby.js, including a custom WYSIWYG SVG editor"
+      - "Designed and implemented full Salesforce CRM sync—UI/UX, frontend, and backend APIs for standard & custom objects"
+      - "Managed backend development in Laravel and led MySQL schema design"
+      - "Took ownership of UI/UX design in the absence of a dedicated designer"
+      - "Improved crawler performance, doubling personnel data coverage for the database product"
 
   - name: NetApp
-    position: Backend Software Engineer on the FlashRay Storage Team
+    position: Backend Engineer, FlashRay Storage Team
     location: Sunnyvale, CA, USA
-    startDate: "2014-08"
-    endDate: "2017-10"
+    startDate: "2014.08"
+    endDate: "2015.10"
     highlights:
-      - Developed the FlashRay Setup Wizard for turnkey installation of NetApp's All Flash Array storage system
-      - Built system management features via REST APIs and Jetty web server components
-      - Enhanced Python-based frameworks for automated IO testing and fault injection
+      - "Developed a turnkey setup wizard for NetApp's All Flash Array"
+      - "Built system management features using REST APIs and Jetty web components"
+      - "Contributed to Python-based frameworks for simulated IO and fault injection testing"
 
-  - name: Freelance Developer & UI Developer
-    position: Freelance Fullstack Developer & Designer
+  - name:
+    position: Freelance Developer & UI Designer
     location: Remote
-    startDate: "2014-01"
-    endDate: "2024-12"
-    summary: "Designed and developed small-scale web projects for individuals and small businesses, focusing on frontend implementation and UI/UX design. Work includes personal websites, static content archives, internal tools, and casual games."
+    startDate: "2014"
+    endDate: "Present"
     highlights:
-      - Built and deployed personal websites and blogs using React, Gatsby.js, Next.js, Tailwind CSS, and Material UI on Netlify
-      - Created a static archive site by crawling content from a defunct website and indexing it with Algolia for search
-      - Developed a simple inventory management app using React, Firebase, and Ant Design
-      - Contributed to a multiplayer math game with Vue.js and WebSocket, and led the UI redesign
+      - "Built and deployed personal websites and blogs using React, Gatsby.js, Next.js, Tailwind CSS, Material UI, and Netlify"
+      - "Created a static archive site with crawled legacy content, searchable via Algolia"
+      - "Developed a lightweight inventory management tool using React, Firebase, and Ant Design for a small business"
+      - "Collaborated on a multiplayer math game using Vue.js, leading a full front-end redesign and code refactoring"
 
 education:
   - name: Bryn Mawr College
     location: Bryn Mawr, PA, USA
     area: Computer Science
     studyType: Bachelor of Arts in Computer Science
-    startDate: "2010-08"
-    endDate: "2014-05"
+    startDate: "2010.08"
+    endDate: "2014.05"
     score: Major GPA 3.9/4.0
     thesis: "Augmented Reality Library App on Android"
 
@@ -93,6 +82,7 @@ skills:
       - Vue.js
       - WeChat Mini-Program (Native)
       - Tailwind CSS
+      - Framer Motion
   - name: Backend
     level: Advanced
     keywords:
@@ -103,20 +93,19 @@ skills:
     level: Advanced
     keywords:
       - MySQL
-      - Database Design
       - Query Optimization
+      - Schema Design
   - name: DevOps
     level: Advanced
     keywords:
       - Docker
+      - CI/CD
       - AWS
-      - CI/CD Pipelines
-      - Git
   - name: Testing
     level: Advanced
     keywords:
       - Unit Testing
-      - 云测 Automation
+      - Tencent Cloud Test
       - Cypress
   - name: Design Tools
     level: Advanced
@@ -130,11 +119,13 @@ skills:
     keywords:
       - Chinese (Native)
       - English (Near-native)
-      - Japanese (Fluent, JLPT N1 Certified)
+      - Japanese (Fluent, JLPT N1)
 
 interests:
-  - Rock Climbing
+  - Rock climbing
   - Photography
-  - Guitar
-  - Knitting
-  - Coffee
+  - Filmmaking
+  - CrossFit
+  - Electric guitar
+  - Snowboarding
+  - Reading
