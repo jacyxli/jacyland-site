@@ -112,27 +112,11 @@ export default function DeviceMockup({
                       src={image}
                       alt={`Screenshot ${index + 1}`}
                       fill
-                      className="object-cover object-top"
+                      className="object-contain"
                     />
                   </div>
                 ))}
               </motion.div>
-
-              {/* Dots Indicator */}
-              {images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                  {images.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentIndex
-                          ? "bg-white shadow-lg"
-                          : "bg-white/50"
-                      }`}
-                    />
-                  ))}
-                </div>
-              )}
             </>
           ) : (
             // Scroll Mode

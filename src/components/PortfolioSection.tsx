@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import { ReactElement, useRef } from "react";
 import PortfolioCard from "./PortfolioCard";
 
@@ -22,74 +22,99 @@ export default function PortfolioSection({
     sectionTitle?: string;
     cardIndex?: number;
     type: "mobile" | "web";
-    images?: string[];
+    context: string;
     description: string;
     features: string[];
+    role: string;
+    images?: string[];
     actions?: ReactElement;
+    mockupMode: "swiper" | "scroll";
   }> = [
     {
-      sectionTitle: "CLASSPASS",
+      sectionTitle: "CLASSPASS CHINA",
       cardIndex: 1,
       type: "mobile",
+      context: "WeChat Mini-Program & Web Development",
       images: [
         "/classpass-1.PNG",
         "/classpass-2.PNG",
         "/classpass-3.PNG",
         "/classpass-4.PNG",
+        "/classpass-5.PNG",
       ],
+      mockupMode: "swiper",
       description:
-        "A localized fitness booking experience designed for users in mainland China. Integrated with WeChat for easy account access, class discovery, and booking management — all tailored to local user habits and payment systems.",
+        "A localized fitness booking experience designed for users in mainland China. Integrated with WeChat for seamless access, class discovery, and booking management — all tailored to local user habits and payment systems.",
       features: [
-        "Real-time tracking",
-        "Multiple payment methods",
-        "Personalized recommendations",
-        "Order history",
+        "Discover and book fitness classes",
+        "Manage memberships and packages",
+        "WeChat Pay integration",
+        "Workout calendar & User Reviews",
       ],
+      role: "Feature owner responsible for end-to-end development as part of the ClassPass China engineering team.",
     },
     {
-      sectionTitle: "WEB PLATFORMS",
+      sectionTitle: "YANJI WECHAT MINI-PROGRAM",
       cardIndex: 2,
-      type: "web",
-      images: [
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=600&fit=crop",
-      ],
+      type: "mobile",
+      context: "Product Concept, Design, Mobile & Web Development",
+      mockupMode: "swiper",
+      images: ["/Yanji-1.PNG", "/Yanji-2.PNG", "/Yanji-3.PNG", "/Yanji-4.PNG"],
       description:
-        "A comprehensive e-commerce solution with advanced filtering, wishlist functionality, and secure checkout process.",
+        "A full-stack product catalog and management system built for a new climbing-hold brand. I led the project from concept to launch — designing the user experience, implementing both the mobile mini-program and the web-based admin panel, and building the service layer and database architecture.",
       features: [
-        "Advanced filtering",
-        "Wishlist functionality",
-        "Secure checkout",
-        "Inventory management",
+        "Configurable product list and detail pages",
+        "Filter, search, and sort for product discovery",
+        "Customer service integration and feedback handling",
+        "Admin dashboard for product and content management",
       ],
+      role: "Sole designer-engineer, driving product definition, UX design, and fullstack development through launch.",
     },
     {
-      sectionTitle: "SAAS DASHBOARDS",
+      sectionTitle: "KEYMAN DATABASE",
       cardIndex: 3,
       type: "web",
+      context: "Frontend Architecture, Web Development & Data Integration",
+      mockupMode: "scroll",
+      images: ["/keyman-db.png"],
+      description:
+        "Sales-lead intelligence platform for discovering decision-makers and contacts. Users search by company, title, or keywords; results are powered by Elasticsearch and fed by an automated crawling pipeline with data cleaning/normalization..",
+      features: [
+        "Fast full-text + faceted search",
+        "Company/personnel profile pages",
+        "Crawler-fed updates with data normalization",
+        "Responsive UI and SEO-optimized architecture",
+      ],
+      role: "Frontend lead, collaborating across fullstack development, search optimization, and data integration.",
+    },
+    {
+      sectionTitle: "PERSONAL PROJECTS",
+      cardIndex: 4,
+      type: "web",
+      mockupMode: "swiper",
+      context: "Collection of Side Projects",
       images: [
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop",
       ],
       description:
-        "A powerful SaaS dashboard with analytics, user management, and customizable widgets for business insights.",
+        "A collection of side projects exploring design, data, and everyday problem-solving through code. Each project blends design thinking, frontend craft, and data-driven functionality — small but thoughtful tools that make daily life a bit more organized.",
       features: [
-        "Analytics dashboard",
-        "User management",
-        "Customizable widgets",
-        "Real-time notifications",
+        "Personal Website: Designed in Figma and vibe-coded into a responsive portfolio",
+        "Blog Platform: Custom-built static blog for publishing and experimentation",
+        "Q&A Archive: Crawled and preserved posts from a discontinued web service; cleaned data, indexed it with Algolia, and built a searchable front-end",
+        "Inventory Management App: A lightweight inventory tool for a friend's pub — supports item logging, inventory history tracking, and automatic monthly summaries",
       ],
+      role: "Built with React, Tailwind, and LeanCloud (MongoDB-like backend). Each project explores different aspects of frontend development, data processing, and user experience design.",
     },
   ];
 
   return (
     <section
       ref={containerRef}
-      className={`relative h-[300vh] bg-black ${className ?? ""}`}
+      className={`relative h-[400vh] bg-black ${className ?? ""}`}
     >
       <div className="sticky top-0 h-screen relative flex items-center justify-center">
         {portfolioData.map((project, i) => {
@@ -115,10 +140,12 @@ export default function PortfolioSection({
               sectionTitle={project.sectionTitle}
               cardIndex={project.cardIndex}
               contentType={project.type}
+              context={project.context}
               contentDescription={project.description}
               contentFeatures={project.features}
+              role={project.role}
               images={project.images}
-              mockupMode={i === 1 ? "scroll" : "swiper"}
+              mockupMode={project.mockupMode}
               actionButtons={project.actions || undefined}
             />
           );
