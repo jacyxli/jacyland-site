@@ -68,120 +68,122 @@ export default function PortfolioCard({
   className = "",
 }: PortfolioCardProps) {
   return (
-    <motion.div
-      style={style}
-      className={`absolute bg-white shadow-2xl rounded-2xl p-8 sm:p-16 flex flex-col justify-between ${className}`}
-    >
-      {/* Header Section */}
-      {(sectionTitle || cardIndex !== undefined) && (
-        <>
-          <SectionHead
-            title={sectionTitle || ""}
-            showDivider={false}
-            showAnimation={false}
-            rightSlot={
-              cardIndex !== undefined
-                ? cardIndex.toString().padStart(2, "0")
-                : undefined
-            }
-          />
-          <div className="w-full h-px bg-gray-900 mt-4 my-8" />
-        </>
-      )}
-
-      {/* Main Content - Two Column Layout */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Conditional Layout: Mobile (text left, mockup right) vs Web (mockup left, text right) */}
-        {contentType === "mobile" ? (
+    <div className={`absolute p-10 box-border w-full h-screen ${className}`}>
+      <motion.div
+        style={style}
+        className="w-full h-full bg-white shadow-2xl rounded-2xl p-8 sm:p-16 flex flex-col justify-between "
+      >
+        {/* Header Section */}
+        {(sectionTitle || cardIndex !== undefined) && (
           <>
-            {/* Mobile: Text Left (3/4 width) */}
-            <div className="w-3/4 pr-6 flex flex-col justify-start space-y-6">
-              {/* Content Title */}
-              <div className="text-sm font-bold text-gray-500">{context}</div>
-
-              {/* Description */}
-              <p className="text-lg leading-relaxed">{contentDescription}</p>
-
-              {/* Key Features */}
-              <ul className="space-y-1">
-                {contentFeatures.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center text-lg space-x-3"
-                  >
-                    <div className="w-2 h-2 bg-black rounded-full"></div>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Role/Contribution */}
-              <div className="space-y-1">
-                <h4 className="text-lg font-semibold">My Role</h4>
-                <p className="text-lg leading-relaxed">{role}</p>
-              </div>
-
-              {/* Action Buttons Slot */}
-              {actionButtons && (
-                <div className="flex space-x-4 pt-4">{actionButtons}</div>
-              )}
-            </div>
-
-            {/* Mobile: Mockup Right (1/3 width) */}
-            <div className="w-1/4 pl-6 flex items-center justify-start">
-              <DeviceMockup
-                type={contentType}
-                images={images || []}
-                mode={mockupMode}
-              />
-            </div>
-          </>
-        ) : (
-          <>
-            {/* Web: Mockup Left */}
-            <div className="w-1/2 flex items-center justify-start">
-              <DeviceMockup
-                type={contentType}
-                images={images || []}
-                mode={mockupMode}
-              />
-            </div>
-
-            {/* Web: Text Right */}
-            <div className="w-1/2  pl-6 pl-6 flex flex-col justify-start space-y-6">
-              {/* Content Title */}
-              <div className="text-sm font-bold text-gray-500">{context}</div>
-
-              {/* Description */}
-              <p className="text-lg leading-relaxed">{contentDescription}</p>
-
-              {/* Key Features */}
-              <ul className="space-y-1">
-                {contentFeatures.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center text-lg space-x-3"
-                  >
-                    <div className="w-2 h-2 bg-black rounded-full"></div>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Role/Contribution */}
-              <div className="space-y-1">
-                <h4 className="text-lg font-semibold">My Role</h4>
-                <p className="text-lg leading-relaxed">{role}</p>
-              </div>
-
-              {/* Action Buttons Slot */}
-              {actionButtons && (
-                <div className="flex space-x-4 pt-4">{actionButtons}</div>
-              )}
-            </div>
+            <SectionHead
+              title={sectionTitle || ""}
+              showDivider={false}
+              showAnimation={false}
+              rightSlot={
+                cardIndex !== undefined
+                  ? cardIndex.toString().padStart(2, "0")
+                  : undefined
+              }
+            />
+            <div className="w-full h-px bg-gray-900 mt-4 my-8" />
           </>
         )}
-      </div>
-    </motion.div>
+
+        {/* Main Content - Two Column Layout */}
+        <div className="flex-1 flex overflow-hidden">
+          {/* Conditional Layout: Mobile (text left, mockup right) vs Web (mockup left, text right) */}
+          {contentType === "mobile" ? (
+            <>
+              {/* Mobile: Text Left (3/4 width) */}
+              <div className="flex-1 pr-6 flex flex-col justify-start space-y-6">
+                {/* Content Title */}
+                <div className="text-sm font-bold text-gray-500">{context}</div>
+
+                {/* Description */}
+                <p className="text-lg leading-relaxed">{contentDescription}</p>
+
+                {/* Key Features */}
+                <ul className="space-y-1">
+                  {contentFeatures.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center text-lg space-x-3"
+                    >
+                      <div className="w-2 h-2 bg-black rounded-full"></div>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Role/Contribution */}
+                <div className="space-y-1">
+                  <h4 className="text-lg font-semibold">My Role</h4>
+                  <p className="text-lg leading-relaxed">{role}</p>
+                </div>
+
+                {/* Action Buttons Slot */}
+                {actionButtons && (
+                  <div className="flex space-x-4 pt-4">{actionButtons}</div>
+                )}
+              </div>
+
+              {/* Mobile: Mockup Right (1/3 width) */}
+              <div className="pl-6 flex items-center justify-start">
+                <DeviceMockup
+                  type={contentType}
+                  images={images || []}
+                  mode={mockupMode}
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Web: Mockup Left */}
+              <div className="w-1/2 flex items-center justify-start">
+                <DeviceMockup
+                  type={contentType}
+                  images={images || []}
+                  mode={mockupMode}
+                />
+              </div>
+
+              {/* Web: Text Right */}
+              <div className="w-1/2  pl-6 pl-6 flex flex-col justify-start space-y-6">
+                {/* Content Title */}
+                <div className="text-sm font-bold text-gray-500">{context}</div>
+
+                {/* Description */}
+                <p className="text-lg leading-relaxed">{contentDescription}</p>
+
+                {/* Key Features */}
+                <ul className="space-y-1">
+                  {contentFeatures.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center text-lg space-x-3"
+                    >
+                      <div className="w-2 h-2 bg-black rounded-full"></div>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Role/Contribution */}
+                <div className="space-y-1">
+                  <h4 className="text-lg font-semibold">My Role</h4>
+                  <p className="text-lg leading-relaxed">{role}</p>
+                </div>
+
+                {/* Action Buttons Slot */}
+                {actionButtons && (
+                  <div className="flex space-x-4 pt-4">{actionButtons}</div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+      </motion.div>
+    </div>
   );
 }
