@@ -14,3 +14,8 @@ export const fastTransition: Transition = {
   duration: 0.25,
   ease: [0.2, 0.8, 0.2, 1],
 };
+
+export const footerTransition: Transition = {
+  duration: 0.3,
+  ease: "easeInOut",
+};

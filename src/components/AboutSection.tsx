@@ -20,17 +20,8 @@ const AboutSection = ({ className }: AboutSectionProps) => {
     target: ref,
     offset: ["start end", "end start"],
   });
-  // Infinite circular scroll effect
-  // scrollProgress 0: First "ABOUT ME" starts at left edge (x = 0%)
-  // scrollProgress 50: Text is partially visible, moving across
-  // scrollProgress 100: Text is centered (x = -50% to center the text)
+
   const x = useTransform(scrollYProgress, [0, 1], ["100vw", "-100vw"]);
-  useMotionValueEvent(x, "change", (latest) => {
-    console.log("x:", latest);
-  });
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log("scrollYProgress:", latest);
-  });
 
   return (
     <motion.section
