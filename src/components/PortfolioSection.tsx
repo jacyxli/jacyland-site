@@ -152,12 +152,12 @@ export default function PortfolioSection({
         })}
       </div>
 
-      <div className="sm:hidden relative">
+      <div className="sm:hidden relative gap-4 flex flex-col mt-8">
         {portfolioData.map((project, i) => {
           return (
             <PortfolioCard
               key={i}
-              className="p-4 sm:p-8 relative"
+              className="px-4 sm:p-8 relative"
               sectionTitle={project.sectionTitle}
               cardIndex={project.cardIndex}
               contentType={project.type}

@@ -38,7 +38,7 @@ export default function Footer({ className }: { className?: string }) {
   return (
     <footer
       ref={footerRef}
-      className={`w-full relative bg-white text-black py-16 ${className ?? ""}`}
+      className={`w-full relative bg-black text-white py-16 ${className ?? ""}`}
     >
       <div className="flex items-center justify-center gap-4">
         {/* Animated bear */}

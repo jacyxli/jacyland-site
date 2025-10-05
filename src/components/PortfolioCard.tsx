@@ -98,14 +98,14 @@ export default function PortfolioCard({
             </div>
 
             {/* Description */}
-            <p className="sm:text-lg text-base sm:leading-relaxed leading-normal">
+            <p className="sm:text-lg text-sm sm:leading-relaxed leading-normal">
               {contentDescription}
             </p>
 
             {/* Key Features */}
             <ul className="sm:space-y-1 space-y-0 list-disc pl-4">
               {contentFeatures.map((feature, index) => (
-                <li key={index} className="sm:text-lg text-base">
+                <li key={index} className="sm:text-lg text-sm">
                   {feature}
                 </li>
               ))}
@@ -113,8 +113,8 @@ export default function PortfolioCard({
 
             {/* Role/Contribution */}
             <div className="sm:space-y-1 space-y-0">
-              <h4 className="sm:text-lg text-base font-semibold">My Role</h4>
-              <p className="sm:text-lg text-base sm:leading-relaxed leading-normal">
+              <h4 className="sm:text-lg text-sm font-semibold">My Role</h4>
+              <p className="sm:text-lg text-sm sm:leading-relaxed leading-normal">
                 {role}
               </p>
             </div>
