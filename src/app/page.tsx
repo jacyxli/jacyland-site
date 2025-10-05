@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,10 +18,13 @@ export default function Home() {
       <ExperienceSection className="min-h-[200vh] bg-gray-100 rounded-t-3xl relative z-20" />
 
       {/* Portfolio scrolls ABOVE Experience */}
-      <PortfolioSection className="relative rounded-t-3xl z-40 -mt-16" />
+      <PortfolioSection className="relative rounded-t-3xl z-30 -mt-16" />
+
+      {/* Contact Section */}
+      <ContactSection className="relative z-50" />
 
       {/* Footer with animation - below portfolio but above other sections */}
-      <Footer className="z-30" />
+      <Footer className="z-40" />
     </div>
   );
 }

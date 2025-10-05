@@ -8,7 +8,7 @@ const Nav = () => {
 
   return (
     <div
-      className="fixed top-8 right-6 sm:right-12 z-50 flex flex-col items-end"
+      className="fixed top-8 right-6 sm:right-12 z-100 flex flex-col items-end"
       onMouseLeave={() => setHovered(false)}
     >
       {/* Button */}
