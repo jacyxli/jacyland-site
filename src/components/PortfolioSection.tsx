@@ -1,13 +1,9 @@
 "use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ReactElement, useRef } from "react";
 import PortfolioCard from "./PortfolioCard";
+import MotionP from "./MotionP";
 
 export default function PortfolioSection({
   className,
@@ -27,33 +23,11 @@ export default function PortfolioSection({
     offset: ["start end", "start start"], // full section watched
   });
 
-  const selectedX = useTransform(
+  const selectedWorkX = useTransform(
     selectedWorkScrollYProgress,
-    [0, 0.6],
-    ["-100%", "0%"]
+    [0, 0.9],
+    ["100vw", "0vw"]
   );
-  const workX = useTransform(
-    selectedWorkScrollYProgress,
-    [0, 0.6],
-    ["100%", "-0%"]
-  );
-  const selectedY = useTransform(
-    selectedWorkScrollYProgress,
-    [0.2, 0.8],
-    ["120%", "0%"]
-  );
-  const workY = useTransform(
-    selectedWorkScrollYProgress,
-    [0, 0.6],
-    ["-100%", "0%"]
-  );
-
-  useMotionValueEvent(selectedX, "change", (latest) => {
-    console.log("selectedX:", latest);
-  });
-  useMotionValueEvent(workX, "change", (latest) => {
-    console.log("workX:", latest);
-  });
 
   // Portfolio data
   const portfolioData: Array<{
@@ -95,11 +69,11 @@ export default function PortfolioSection({
       sectionTitle: "YANJI WECHAT MINI-PROGRAM",
       cardIndex: 2,
       type: "mobile",
-      context: "Product Concept, Design, Mobile & Web Development",
+      context: "Product Concept, Design & Development",
       mockupMode: "swiper",
       images: ["/Yanji-1.PNG", "/Yanji-2.PNG", "/Yanji-3.PNG", "/Yanji-4.PNG"],
       description:
-        "A full-stack product catalog and management system built for a new climbing-hold brand. I led the project from concept to launch — designing the user experience, implementing both the mobile mini-program and the web-based admin panel, and building the service layer and database architecture.",
+        "A customized WeChat-based product catalog with an integrated admin system, built for a climbing-hold brand to showcase collections and manage product information across web and mobile.",
       features: [
         "Configurable product list and detail pages",
         "Filter, search, and sort for product discovery",
@@ -112,7 +86,7 @@ export default function PortfolioSection({
       sectionTitle: "KEYMAN DATABASE",
       cardIndex: 3,
       type: "web",
-      context: "Frontend Architecture, Web Development & Data Integration",
+      context: "Web Development & Data Integration",
       mockupMode: "scroll",
       images: ["/keyman-db.png"],
       description:
@@ -125,57 +99,21 @@ export default function PortfolioSection({
       ],
       role: "Frontend lead, collaborating across fullstack development, search optimization, and data integration.",
     },
-    {
-      sectionTitle: "PERSONAL PROJECTS",
-      cardIndex: 4,
-      type: "web",
-      mockupMode: "swiper",
-      context: "Collection of Side Projects",
-      images: [
-        "/project-1.png",
-        "/project-2.png",
-        "/project-3.png",
-        "/project-4.png",
-      ],
-      description:
-        "A collection of side projects exploring design, data, and everyday problem-solving through code. Each project blends design thinking, frontend craft, and data-driven functionality — small but thoughtful tools that make daily life a bit more organized.",
-      features: [
-        "Personal Website: Designed in Figma and vibe-coded into a responsive portfolio",
-        "Blog Platform: Custom-built static blog for publishing and experimentation",
-        "Q&A Archive: Crawled and preserved posts from a discontinued web service; cleaned data, indexed it with Algolia, and built a searchable front-end",
-        "Inventory Management App: A lightweight inventory tool for a friend's pub — supports item logging, inventory history tracking, and automatic monthly summaries",
-      ],
-      role: "Built with React, Tailwind, and LeanCloud (MongoDB-like backend). Each project explores different aspects of frontend development, data processing, and user experience design.",
-    },
   ];
 
   return (
     <section
       ref={containerRef}
-      className={`relative h-[400vh] bg-gradient-to-b from-white to-black ${
+      className={`relative sm:h-[400vh] sm:pb-32 pb-24 bg-gradient-to-b from-white to-black ${
         className ?? ""
       }`}
     >
       {/* Fixed Section Title */}
-      <div className="font-anton text-[96px] z-[-1] px-6 text-center">
-        <h2 className="text-white tracking-wider flex items-center justify-center gap-4">
-          {/* <motion.span
-            className="inline-block mix-blend-difference "
-            style={{ x: selectedX, y: selectedY }}
-          >
-            SELECTED
-          </motion.span> */}
+      <motion.div className="font-anton sm:text-[96px] text-3xl pl-6 overflow-hidden">
+        SELECTED WORK /
+      </motion.div>
 
-          <motion.span
-            className="inline-block mix-blend-difference "
-            style={{ y: selectedY }}
-          >
-            SELECTED WORK
-          </motion.span>
-        </h2>
-      </div>
-
-      <div className="sticky top-0 h-screen relative flex items-center justify-center">
+      <div className="hidden sm:block sticky top-0 h-screen relative flex items-center justify-center">
         {portfolioData.map((project, i) => {
           const start = i / portfolioData.length;
           const end = (i + 1) / portfolioData.length;
@@ -186,7 +124,7 @@ export default function PortfolioSection({
           const y =
             i === 0
               ? useTransform(scrollYProgress, [0, 1], ["0%", "0%"]) // First card doesn't move
-              : useTransform(scrollYProgress, [start, end], ["100%", "0%"]); // Other cards move up
+              : useTransform(scrollYProgress, [start, end], ["110%", "0%"]); // Other cards move up
 
           // First card scales down as other cards appear
           const scale = useTransform(scrollYProgress, [end, nextEnd], [1, 0.9]); // Scale down from 1 to 0.9
@@ -194,8 +132,29 @@ export default function PortfolioSection({
           return (
             <PortfolioCard
               key={i}
-              className="p-8"
+              className="p-4 sm:p-8 absolute h-screen"
               style={{ y, scale } as any}
+              sectionTitle={project.sectionTitle}
+              cardIndex={project.cardIndex}
+              contentType={project.type}
+              context={project.context}
+              contentDescription={project.description}
+              contentFeatures={project.features}
+              role={project.role}
+              images={project.images}
+              mockupMode={project.mockupMode}
+              actionButtons={project.actions || undefined}
+            />
+          );
+        })}
+      </div>
+
+      <div className="sm:hidden relative">
+        {portfolioData.map((project, i) => {
+          return (
+            <PortfolioCard
+              key={i}
+              className="p-4 sm:p-8 relative"
               sectionTitle={project.sectionTitle}
               cardIndex={project.cardIndex}
               contentType={project.type}
