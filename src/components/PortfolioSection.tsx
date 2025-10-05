@@ -39,6 +39,7 @@ export default function PortfolioSection({
     features: string[];
     role: string;
     images?: string[];
+    link?: string;
     actions?: ReactElement;
     mockupMode: "swiper" | "scroll";
   }> = [
@@ -98,6 +99,7 @@ export default function PortfolioSection({
         "Responsive UI and SEO-optimized architecture",
       ],
       role: "Frontend lead, collaborating across fullstack development, search optimization, and data integration.",
+      link: "https://keyman-db.smart-letter.com/",
     },
   ];
 
@@ -142,6 +144,7 @@ export default function PortfolioSection({
               contentFeatures={project.features}
               role={project.role}
               images={project.images}
+              link={project.link}
               mockupMode={project.mockupMode}
               actionButtons={project.actions || undefined}
             />
@@ -163,6 +166,7 @@ export default function PortfolioSection({
               contentFeatures={project.features}
               role={project.role}
               images={project.images}
+              link={project.link}
               mockupMode={project.mockupMode}
               actionButtons={project.actions || undefined}
             />

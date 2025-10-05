@@ -4,6 +4,7 @@ import { motion, MotionValue } from "framer-motion";
 import { ReactNode } from "react";
 import DeviceMockup from "./DeviceMockup";
 import MobileMockup from "./MobileMockup";
+import WebMockup from "./WebMockup";
 import SectionHead from "./SectionHead";
 
 interface PortfolioCardProps {
@@ -18,6 +19,7 @@ interface PortfolioCardProps {
   contentFeatures: string[];
   role: string;
   images?: string[];
+  link?: string;
   mockupMode?: "swiper" | "scroll";
 
   // Slots
@@ -39,6 +41,7 @@ export default function PortfolioCard({
   contentFeatures,
   role,
   images,
+  link,
   mockupMode = "swiper",
   actionButtons,
   style,
@@ -57,6 +60,7 @@ export default function PortfolioCard({
               title={sectionTitle || ""}
               showDivider={false}
               showAnimation={false}
+              link={link}
               rightSlot={
                 cardIndex !== undefined
                   ? cardIndex.toString().padStart(2, "0")
@@ -73,17 +77,19 @@ export default function PortfolioCard({
             contentType === "mobile" ? "sm:flex-row-reverse" : "sm:flex-row"
           }`}
         >
-          <div className="flex justify-center sm:min-w-1/3 h-[40vh] sm:h-full">
-            {contentType === "mobile" ? (
+          {contentType === "mobile" ? (
+            <div className="flex justify-center sm:min-w-1/3 h-[40vh] sm:h-full drop-shadow-md my-4 sm:my-0">
               <MobileMockup images={images || []} className="h-full w-auto" />
-            ) : (
-              <DeviceMockup
-                type={contentType}
+            </div>
+          ) : (
+            <div className="flex items-start justify-start w-full sm:min-w-1/3 drop-shadow-md my-4">
+              <WebMockup
                 images={images || []}
-                mode={mockupMode}
+                scroll={mockupMode === "scroll"}
+                className="h-auto w-full"
               />
-            )}
-          </div>
+            </div>
+          )}
 
           <div className="flex flex-col justify-start gap-4 sm:gap-6">
             {/* Content Title */}

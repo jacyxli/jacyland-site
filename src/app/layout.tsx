@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${anton.variable} ${spaceMono.variable} antialiased`}
+        className={`${inter.variable} ${anton.variable} ${spaceMono.variable} antialiased overflow-x-hidden`}
       >
         <Nav />
         {children}
