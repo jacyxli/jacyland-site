@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import ExternalArrowIcon from "@/components/icons/ExternalArrowIcon";
 import MotionP from "./MotionP";
 
 interface SectionHeadProps {
@@ -48,16 +49,7 @@ export default function SectionHead({
               whileHover={{ x: 3, y: -3 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 256 256"
-                className="w-full h-full -rotate-45"
-              >
-                <path
-                  d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"
-                  fill="currentColor"
-                />
-              </svg>
+              <ExternalArrowIcon className="w-full h-full -rotate-45" />
             </motion.a>
           )}
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Anton, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
       >
         <Nav />
         {children}
+        <Footer className="z-40" />
       </body>
     </html>
   );

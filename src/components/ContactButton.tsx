@@ -7,21 +7,39 @@ interface ContactButtonProps {
   href: string;
   icon: React.ReactNode;
   label: string;
+  /** Direction of hover reveal animation: 'y' (bottom→top) or 'x' (left→right) */
+  animationDirection?: "x" | "y";
+  /** Size of the circular button */
+  size?: "sm" | "md" | "lg";
 }
 
 export default function ContactButton({
   href,
   icon,
   label,
+  animationDirection = "y",
+  size = "md",
 }: ContactButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
+
+  const sizeClass =
+    size === "sm" ? "w-10 h-10" : size === "md" ? "w-12 h-12" : "w-16 h-16"; // lg default
+
+  const overlayInitial =
+    animationDirection === "x" ? { scaleX: 0 } : { scaleY: 0 };
+  const overlayAnimate =
+    animationDirection === "x"
+      ? { scaleX: isHovered ? 1 : 0 }
+      : { scaleY: isHovered ? 1 : 0 };
+  const overlayOriginStyle =
+    animationDirection === "x" ? { originX: 0 } : { originY: 1 };
 
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative w-16 h-16 rounded-full border-2 border-white overflow-hidden group"
+      className={`relative ${sizeClass} rounded-full border-2 border-white overflow-hidden group`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       whileHover={{ scale: 1.05 }}
@@ -35,12 +53,10 @@ export default function ContactButton({
       {/* Dark icon (hover state) */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center bg-white text-black"
-        initial={{ scaleY: 1 }}
-        animate={{
-          scaleY: isHovered ? 1 : 0,
-        }}
+        initial={overlayInitial}
+        animate={overlayAnimate}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        style={{ originY: 1 }}
+        style={overlayOriginStyle as any}
       >
         {icon}
       </motion.div>

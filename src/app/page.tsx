@@ -5,7 +5,6 @@ import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -22,9 +21,6 @@ export default function Home() {
 
       {/* Contact Section */}
       <ContactSection className="relative z-50" />
-
-      {/* Footer with animation - below portfolio but above other sections */}
-      <Footer className="z-40" />
     </div>
   );
 }
