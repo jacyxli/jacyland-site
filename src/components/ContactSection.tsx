@@ -11,7 +11,9 @@ import DownArrowIcon from "./icons/DownArrowIcon";
 export default function ContactSection({ className }: { className?: string }) {
   return (
     <section
-      className={`w-full bg-black text-white relative pb-24 ${className ?? ""}`}
+      className={`w-full bg-black text-white relative pb-12 sm:pb-16 ${
+        className ?? ""
+      }`}
     >
       <div className="relative">
         {/* Row 1: Heading */}
@@ -53,7 +55,7 @@ export default function ContactSection({ className }: { className?: string }) {
 
         {/* Row 3: Bottom-right aligned icons */}
         <motion.div
-          className="mt-36 px-6 sm:px-12 flex sm:justify-end justify-start"
+          className="sm:mt-36 mt-24 px-6 sm:px-12 flex sm:justify-end justify-start"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -63,24 +65,24 @@ export default function ContactSection({ className }: { className?: string }) {
             <ContactButton
               href="mailto:jacy.li@outlook.com"
               label="Email"
-              icon={<MailIcon />}
+              icon={MailIcon}
               hoverText="EMAIL ME"
             />
             <ContactButton
               href="https://www.linkedin.com/in/jacy-li/"
               label="LinkedIn"
-              icon={<LinkedInIcon />}
+              icon={LinkedInIcon}
               hoverText="CONNECT WITH ME"
             />
             <ContactButton
               href="https://github.com/jacyxli"
               label="GitHub"
-              icon={<GitHubIcon />}
+              icon={GitHubIcon}
             />
             <ContactButton
               href="https://www.instagram.com/jacyxli/"
               label="Instagram"
-              icon={<InstagramIcon />}
+              icon={InstagramIcon}
             />
           </div>
         </motion.div>
