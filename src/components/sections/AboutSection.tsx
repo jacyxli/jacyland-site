@@ -1,13 +1,8 @@
 "use client";
 
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import MotionP from "@/components/MotionP";
+import { MotionP } from "@/components";
 
 type AboutSectionProps = {
   className?: string;

@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function GitHubIcon({
   className = "w-6 h-6",
 }: {

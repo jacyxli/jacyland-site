@@ -2,12 +2,11 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import DownArrowIcon from "@/components/icons/DownArrowIcon";
+import { DownArrowIcon } from "@/components";
 
 interface ContactButtonProps {
   href: string;
   icon: React.ComponentType<{ className?: string }>;
-  label: string;
   /** Optional hover text - if not provided, no hover label/arrow will show */
   hoverText?: string;
   /** Direction of hover reveal animation: 'y' (bottom→top) or 'x' (left→right) */
@@ -19,7 +18,6 @@ interface ContactButtonProps {
 export default function ContactButton({
   href,
   icon,
-  label,
   hoverText,
   animationDirection = "y",
   size = "md",
@@ -89,7 +87,7 @@ export default function ContactButton({
           initial={overlayInitial}
           animate={overlayAnimate}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          style={overlayOriginStyle as any}
+          style={overlayOriginStyle as React.CSSProperties}
         >
           {React.createElement(icon, { className: iconSizeClass })}
         </motion.div>

@@ -2,10 +2,7 @@
 
 import { motion, MotionValue } from "framer-motion";
 import { ReactNode } from "react";
-import DeviceMockup from "./DeviceMockup";
-import MobileMockup from "./MobileMockup";
-import WebMockup from "./WebMockup";
-import SectionHead from "./SectionHead";
+import { MobileMockup, WebMockup, SectionHead } from "@/components";
 
 interface PortfolioCardProps {
   // Optional header props

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { slowTransition } from "@/utils/motion";
-import MotionP from "./MotionP";
+import { MotionP } from "@/components";
 
 const rotatingWords = [
   "Fullstack Engineer ",

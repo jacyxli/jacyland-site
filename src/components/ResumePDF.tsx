@@ -9,7 +9,7 @@ import {
   Svg,
   Path,
 } from "@react-pdf/renderer";
-import resumeData from "../app/contents/resume-pdf.yml";
+import rawResumeData from "@/app/contents/resume-pdf.yml";
 
 interface Job {
   name: string;
@@ -33,18 +33,33 @@ interface Education {
   thesis: string;
 }
 
-interface Skill {
-  name: string;
-  level: string;
-  keywords: string[];
-}
-
 interface IconProps {
   path: string;
   size?: number;
   color?: string;
   viewBox?: string;
 }
+
+interface ResumeData {
+  basics: {
+    name: string;
+    label: string;
+    location: {
+      city: string;
+      country: string;
+    };
+    email: string;
+    phone: string;
+    github?: string;
+  };
+  work: Job[];
+  education: Education[];
+  skills: string[];
+  interests: string[];
+}
+
+// Type assertion to ensure resumeData has the correct structure
+const typedResumeData = rawResumeData as unknown as ResumeData;
 
 // Register fonts
 Font.register({
@@ -258,8 +273,8 @@ const ResumePDF = () => (
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.name}>{resumeData.basics.name}</Text>
-          <Text style={styles.label}>{resumeData.basics.label}</Text>
+          <Text style={styles.name}>{typedResumeData.basics.name}</Text>
+          <Text style={styles.label}>{typedResumeData.basics.label}</Text>
         </View>
 
         <View style={styles.body}>
@@ -267,7 +282,7 @@ const ResumePDF = () => (
             {/* Work Experience */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Work Experience</Text>
-              {resumeData.work.map((job: Job, index: number) => (
+              {typedResumeData.work.map((job: Job, index: number) => (
                 <View key={index} style={styles.block}>
                   <View style={[styles.twoColumn]}>
                     <View style={styles.leftColumn}>
@@ -326,8 +341,8 @@ const ResumePDF = () => (
                   size={10}
                 />
                 <Text>
-                  {resumeData.basics.location.city},{" "}
-                  {resumeData.basics.location.country}
+                  {typedResumeData.basics.location.city},{" "}
+                  {typedResumeData.basics.location.country}
                 </Text>
               </View>
               <View style={styles.contactItem}>
@@ -336,7 +351,7 @@ const ResumePDF = () => (
                   path={icons.email}
                   size={10}
                 />
-                <Text>{resumeData.basics.email}</Text>
+                <Text>{typedResumeData.basics.email}</Text>
               </View>
               <View style={styles.contactItem}>
                 <Icon
@@ -344,7 +359,7 @@ const ResumePDF = () => (
                   path={icons.phone}
                   size={10}
                 />
-                <Text>{resumeData.basics.phone}</Text>
+                <Text>{typedResumeData.basics.phone}</Text>
               </View>
               <View style={styles.contactItem}>
                 <Icon
@@ -352,24 +367,19 @@ const ResumePDF = () => (
                   path={icons.github}
                   size={10}
                 />
-                <Text>{resumeData.basics.github}</Text>
+                <Text>{typedResumeData.basics.github}</Text>
               </View>
             </View>
             {/* Skills */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Skills</Text>
               <View style={styles.skillsContainer}>
-                {resumeData.skills.map((skill: Skill, index: number) => (
+                {typedResumeData.skills.map((skill: string, index: number) => (
                   <View
                     key={index}
                     style={[styles.paragraph, styles.jobDescription]}
                   >
-                    <View style={[styles.skillTitle]}>
-                      <Text>{skill.name}</Text>
-                    </View>
-                    <Text style={styles.jobDescription}>
-                      {skill.keywords.join(", ")}
-                    </Text>
+                    <Text style={styles.jobDescription}>{skill}</Text>
                   </View>
                 ))}
               </View>
@@ -377,31 +387,33 @@ const ResumePDF = () => (
             {/* Education */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Education</Text>
-              {resumeData.education.map((edu: Education, index: number) => (
-                <View key={index}>
-                  <View style={styles.twoColumn}>
-                    <Text style={styles.skillTitle}>{edu.name}</Text>
-                    <Text style={styles.jobDuration}>
-                      {`${edu.startDate} — ${edu.endDate}`}
-                    </Text>
+              {typedResumeData.education.map(
+                (edu: Education, index: number) => (
+                  <View key={index}>
+                    <View style={styles.twoColumn}>
+                      <Text style={styles.skillTitle}>{edu.name}</Text>
+                      <Text style={styles.jobDuration}>
+                        {`${edu.startDate} — ${edu.endDate}`}
+                      </Text>
+                    </View>
+                    <Text style={styles.jobDescription}>{edu.studyType}</Text>
+                    <Text style={styles.jobDescription}>{edu.score}</Text>
+                    <View>
+                      <Text style={styles.jobDescription}>
+                        <Text>Thesis: </Text>
+                        {edu.thesis}
+                      </Text>
+                    </View>
                   </View>
-                  <Text style={styles.jobDescription}>{edu.studyType}</Text>
-                  <Text style={styles.jobDescription}>{edu.score}</Text>
-                  <View>
-                    <Text style={styles.jobDescription}>
-                      <Text>Thesis: </Text>
-                      {edu.thesis}
-                    </Text>
-                  </View>
-                </View>
-              ))}
+                )
+              )}
             </View>
 
             {/* Interests */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Interests</Text>
               <Text style={styles.jobDescription}>
-                {resumeData.interests.join(", ")}
+                {typedResumeData.interests.join(", ")}
               </Text>
             </View>
           </View>

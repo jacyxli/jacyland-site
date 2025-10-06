@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ExternalArrowIcon({
   className = "w-6 h-6",
 }: {

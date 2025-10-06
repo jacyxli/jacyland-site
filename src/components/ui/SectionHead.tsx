@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import ExternalArrowIcon from "@/components/icons/ExternalArrowIcon";
-import MotionP from "./MotionP";
+import { MotionP, ExternalArrowIcon } from "@/components";
 
 interface SectionHeadProps {
   title: string;

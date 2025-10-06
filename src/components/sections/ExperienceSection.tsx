@@ -1,10 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MotionP from "@/components/MotionP";
+import { MotionP, DownloadIcon, SectionHead } from "@/components";
 import Link from "next/link";
-import DownloadIcon from "@/components/icons/DownloadIcon";
-import SectionHead from "./SectionHead";
 
 interface Job {
   name: string;

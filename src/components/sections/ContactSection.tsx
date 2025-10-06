@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ContactButton from "./ContactButton";
-import MailIcon from "@/components/icons/MailIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import InstagramIcon from "@/components/icons/InstagramIcon";
-import DownArrowIcon from "./icons/DownArrowIcon";
+import {
+  ContactButton,
+  DownArrowIcon,
+  MailIcon,
+  LinkedInIcon,
+  GitHubIcon,
+  InstagramIcon,
+} from "@/components";
 
 export default function ContactSection({ className }: { className?: string }) {
   return (
@@ -64,24 +66,20 @@ export default function ContactSection({ className }: { className?: string }) {
           <div className="flex gap-4">
             <ContactButton
               href="mailto:jacy.li@outlook.com"
-              label="Email"
               icon={MailIcon}
               hoverText="EMAIL ME"
             />
             <ContactButton
               href="https://www.linkedin.com/in/jacy-li/"
-              label="LinkedIn"
               icon={LinkedInIcon}
               hoverText="CONNECT WITH ME"
             />
             <ContactButton
               href="https://github.com/jacyxli"
-              label="GitHub"
               icon={GitHubIcon}
             />
             <ContactButton
               href="https://www.instagram.com/jacyxli/"
-              label="Instagram"
               icon={InstagramIcon}
             />
           </div>
