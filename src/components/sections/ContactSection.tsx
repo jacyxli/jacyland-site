@@ -13,14 +13,14 @@ import {
 export default function ContactSection({ className }: { className?: string }) {
   return (
     <section
-      className={`w-full bg-black text-white relative pb-12 sm:pb-16 ${
+      className={`w-full bg-black text-white section-container ${
         className ?? ""
       }`}
     >
       <div className="relative">
         {/* Row 1: Heading */}
         <div>
-          <div className="sm:-ml-2 -ml-1 text-[56px] sm:text-[96px] font-anton leading-tight">
+          <div className="sm:-ml-14 -ml-7 text-[56px] sm:text-[96px] font-anton leading-tight">
             thank you for
             <br />
             stopping by :)

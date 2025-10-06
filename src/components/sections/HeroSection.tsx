@@ -6,7 +6,7 @@ import { slowTransition } from "@/utils/motion";
 import { MotionP } from "@/components";
 
 const rotatingWords = [
-  "Fullstack Engineer ",
+  "Fullstack Engineer 💻",
   "UI/UX Designer 🎨",
   "React & Frontend Builder ⚛️",
   "Kotlin & Backend Tinkerer 🔧",
@@ -37,7 +37,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
 
   return (
     <motion.header
-      className={`relative min-h-[100svh] flex items-start justify-between flex-col px-6 pb-24 sm:px-12 pt-12 sm:pb-32 ${
+      className={`section-container items-start justify-between flex-col !pt-12 ${
         className ?? ""
       }`}
     >
@@ -56,7 +56,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
           and problems into products.
         </MotionP>
 
-        <div className="relative sm:h-16 h-12 w-full overflow-hidden mt-2 sm:mt-6 font-mono text-xl sm:text-4xl ">
+        <div className="relative sm:h-16 h-12 w-full overflow-hidden mt-2 sm:mt-6 font-mono text-lg sm:text-4xl">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
               key={current}

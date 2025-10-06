@@ -21,7 +21,7 @@ const AboutSection = ({ className }: AboutSectionProps) => {
   return (
     <motion.section
       ref={ref}
-      className={`min-h-[100svh] bg-black text-white flex flex-col items-center justify-between px-6 py-24 sm:py-32 sm:px-12 ${
+      className={`section-container bg-black text-white flex flex-col items-center justify-between ${
         className ?? ""
       }`}
     >

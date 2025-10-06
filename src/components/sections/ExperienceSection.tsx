@@ -104,7 +104,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
           rightSlot={
             <Link href="/resume" target="_blank">
               <motion.button
-                className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2 cursor-pointer"
+                className="px-4 py-2 bg-gray-900 text-white sm:text-sm text-xs font-normal rounded-lg hover:bg-gray-800 transition-colors duration-200 flex items-center gap-1 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

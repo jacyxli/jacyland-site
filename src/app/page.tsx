@@ -10,7 +10,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="font-sans relative">
+    <div className="font-sans relative snap-y snap-mandatory scroll-smooth">
       {/* Base pinned sections */}
       <HeroSection className="sticky top-0 h-screen z-0" />
       <AboutSection className="sticky top-0 h-screen rounded-t-3xl z-10" />
@@ -22,7 +22,7 @@ export default function Home() {
       <PortfolioSection className="relative rounded-t-3xl z-30 -mt-16" />
 
       {/* Contact Section */}
-      <ContactSection className="relative z-50" />
+      <ContactSection className="relative rounded-t-3xl z-50" />
     </div>
   );
 }
