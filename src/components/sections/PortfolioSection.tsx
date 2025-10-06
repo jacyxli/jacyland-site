@@ -55,7 +55,10 @@ export default function PortfolioSection({
               key={i}
               className="p-4 sm:p-8 absolute h-screen"
               style={
-                { y, scale } as React.CSSProperties & { y: any; scale: any }
+                { y, scale } as React.CSSProperties & {
+                  y: typeof y;
+                  scale: typeof scale;
+                }
               }
               sectionTitle={project.sectionTitle}
               cardIndex={project.cardIndex}

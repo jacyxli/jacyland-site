@@ -43,7 +43,7 @@ export default function ContactSection({ className }: { className?: string }) {
                 {/* Light state (default) */}
                 <div className="relative z-10 flex items-center justify-center bg-transparent gap-2">
                   <span className="text-black group-hover:text-white transition-colors duration-300">
-                    Let's Connect
+                    Let&apos;s Connect
                   </span>
                   <DownArrowIcon className="w-5 h-4 -rotate-90 text-black group-hover:text-white group-hover:-rotate-45 transition-all duration-300" />
                 </div>
