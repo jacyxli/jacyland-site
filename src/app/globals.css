@@ -83,5 +83,5 @@ body {
 }
 
 .section-container {
-  @apply min-h-[100svh] px-6 pt-24 pb-32 sm:py-32 sm:px-12 box-border flex flex-col;
+  @apply min-h-[100svh] max-w-[100svw] px-6 pt-24 pb-32 sm:py-32 sm:px-12 box-border flex flex-col;
 }

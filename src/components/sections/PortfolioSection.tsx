@@ -1,9 +1,63 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import {
+  motion,
+  MotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { useLayoutEffect, useRef, useState } from "react";
 import { PortfolioCard } from "@/components";
 import { portfolioData } from "@/data/portfolio";
+
+function SwapTitle() {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  // scroll setup
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const smooth = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 20,
+  });
+
+  const selectedX = useTransform(smooth, [0.1, 0.6], ["100vw", "0vw"]);
+  const workX = useTransform(smooth, [0.1, 0.6], ["-100vw", "0vw"]);
+  const opacity = useTransform(smooth, [0.5, 0.6], [0, 1]);
+
+  return (
+    <div ref={ref} className="relative w-full overflow-hidden">
+      <div className="font-anton text-white text-5xl sm:text-8xl flex justify-center sm:gap-4 gap-2 items-center">
+        {/* Selected: left → right */}
+        <motion.h1 className="mix-blend-difference" style={{ opacity }}>
+          /
+        </motion.h1>
+
+        <motion.h1
+          style={{ x: selectedX }}
+          className="whitespace-nowrap mix-blend-difference"
+        >
+          Selected
+        </motion.h1>
+
+        {/* Work: right → left */}
+        <motion.h1
+          style={{ x: workX }}
+          className="whitespace-nowrap text-right mix-blend-difference"
+        >
+          Work
+        </motion.h1>
+        <motion.h1 className="mix-blend-difference" style={{ opacity }}>
+          /
+        </motion.h1>
+      </div>
+    </div>
+  );
+}
 
 export default function PortfolioSection({
   className,
@@ -12,71 +66,55 @@ export default function PortfolioSection({
 }) {
   const containerRef = useRef(null);
 
-  // track scroll relative to PortfolioSection
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"], // full section watched
   });
 
-  // Create individual transforms for each card to avoid Rules of Hooks violations
-  const card0Y = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]);
-  const card0Scale = useTransform(scrollYProgress, [1 / 3, 2 / 3], [1, 0.9]);
-
-  const card1Y = useTransform(scrollYProgress, [1 / 3, 2 / 3], ["110%", "0%"]);
-  const card1Scale = useTransform(scrollYProgress, [2 / 3, 1], [1, 0.9]);
-
-  const card2Y = useTransform(scrollYProgress, [2 / 3, 1], ["110%", "0%"]);
-  const card2Scale = useTransform(scrollYProgress, [1, 1], [1, 0.9]);
-
-  const transforms = [
-    { y: card0Y, scale: card0Scale },
-    { y: card1Y, scale: card1Scale },
-    { y: card2Y, scale: card2Scale },
-  ];
-
   return (
     <section
-      ref={containerRef}
-      className={`relative sm:h-[400vh] sm:pb-32 pb-24 bg-gradient-to-b from-white to-black ${
+      className={`relative section-container bg-gradient-to-b from-white to-black ${
         className ?? ""
       }`}
     >
-      {/* Fixed Section Title */}
-      <motion.div className="font-anton sm:text-[96px] text-3xl pl-6 overflow-hidden">
-        SELECTED WORK /
-      </motion.div>
+      <SwapTitle />
 
-      <div className="hidden sm:block sticky top-0 h-screen relative flex items-center justify-center">
+      <div
+        className={`relative sm:h-[300vh] hidden sm:block `}
+        ref={containerRef}
+      >
         {portfolioData.map((project, i) => {
-          const { y, scale } = transforms[i];
+          const start = (i * 1) / 3;
+          const end = ((i + 1) * 1) / 3;
+          const scale = useTransform(scrollYProgress, [start, end], [1.1, 1]);
 
           return (
-            <PortfolioCard
+            <motion.div
               key={i}
-              className="p-4 sm:p-8 absolute h-screen"
-              style={
-                { y, scale } as React.CSSProperties & {
-                  y: typeof y;
-                  scale: typeof scale;
-                }
-              }
-              sectionTitle={project.sectionTitle}
-              cardIndex={project.cardIndex}
-              contentType={project.type}
-              context={project.context}
-              contentDescription={project.description}
-              contentFeatures={project.features}
-              role={project.role}
-              images={project.images}
-              link={project.link}
-              mockupMode={project.mockupMode}
-              actionButtons={project.actions || undefined}
-            />
+              style={{ scale: i === 0 ? 1 : scale }}
+              className="sticky top-0 h-screen w-full py-12"
+            >
+              <PortfolioCard
+                key={i}
+                className="px-4 sm:p-8 relative"
+                sectionTitle={project.sectionTitle}
+                cardIndex={project.cardIndex}
+                contentType={project.type}
+                context={project.context}
+                contentDescription={project.description}
+                contentFeatures={project.features}
+                role={project.role}
+                images={project.images}
+                link={project.link}
+                mockupMode={project.mockupMode}
+                actionButtons={project.actions || undefined}
+              />
+            </motion.div>
           );
         })}
       </div>
 
-      <div className="sm:hidden relative gap-4 flex flex-col mt-8">
+      <div className="sm:hidden relative gap-4 flex flex-col mt-8 box-border">
         {portfolioData.map((project, i) => {
           return (
             <PortfolioCard

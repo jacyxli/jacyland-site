@@ -25,8 +25,8 @@ const AboutSection = ({ className }: AboutSectionProps) => {
         className ?? ""
       }`}
     >
-      <div className="w-full ">
-        <motion.div className="flex justify-center overflow-hidden">
+      <div className="w-full overflow-hidden">
+        <motion.div className="flex justify-center">
           <motion.h1
             className="font-anton text-5xl sm:text-[150px] font-bold whitespace-nowrap text-center"
             style={{ x }}
