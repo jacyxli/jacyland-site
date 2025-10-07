@@ -45,8 +45,6 @@ export default function ContactForm() {
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      console.log(serviceId, templateId, publicKey);
-
       // Validate environment variables
       if (!serviceId || !templateId || !publicKey) {
         throw new Error(
@@ -120,8 +118,8 @@ export default function ContactForm() {
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
             className="sm:text-lg text-base text-gray-400 sm:mt-8 mt-4 max-w-[340px] sm:text-right text-left"
           >
-            If you're interested in working together, feel free to send me an
-            email.
+            If you&apos;re interested in working together, feel free to send me
+            an email.
           </motion.p>
           <motion.div
             className="sm:mt-16 hidden sm:block flex sm:justify-end pr-2"
@@ -229,7 +227,8 @@ export default function ContactForm() {
               >
                 {/* Success text */}
                 <h3 className="text-base font-semibold mb-2">
-                  Message sent successfully! I'll get back to you shortly :)
+                  Message sent successfully! I&apos;ll get back to you shortly
+                  :)
                 </h3>
               </motion.div>
             )}
