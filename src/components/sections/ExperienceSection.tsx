@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MotionP, DownloadIcon, SectionHead } from "@/components";
+import { DownloadIcon, SectionHead } from "@/components";
 import Link from "next/link";
 
 interface Job {
@@ -123,7 +123,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.2 + index * 0.1 }}
+              transition={{ delay: 0.1 + index * 0.1 }}
               whileHover={{
                 backgroundColor: "rgba(0, 0, 0, 0.05)",
                 transition: { duration: 0.2 },
@@ -132,21 +132,14 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-8 py-4 px-2 sm:p-8 rounded-lg">
                 {/* Column 1: Time */}
                 <div className="text-left whitespace-nowrap">
-                  <MotionP
-                    className="text-sm sm:text-base font-mono text-gray-400 flex items-center gap-2 "
-                    delay={0.3 + index * 0.1}
-                    as="div"
-                  >
+                  <div className="text-sm sm:text-base font-mono text-gray-400 flex items-center gap-2">
                     <span>{job.startDate}</span>
                     <div className="bg-gray-400 h-px w-2 group-hover:w-full transition-all duration-3000" />
                     <span>{job.endDate}</span>
-                  </MotionP>
-                  <MotionP
-                    className="text-sm text-gray-500 mt-1"
-                    delay={0.35 + index * 0.1}
-                  >
+                  </div>
+                  <div className="text-sm text-gray-500 mt-1">
                     {job.location}
-                  </MotionP>
+                  </div>
                 </div>
 
                 {/* Column 2: Empty */}
@@ -154,19 +147,13 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
 
                 {/* Columns 3-4: Combined content */}
                 <div className="sm:col-span-2 flex flex-col">
-                  <MotionP
-                    className="font-bold text-lg sm:text-xl mb-4"
-                    delay={0.4 + index * 0.1}
-                  >
+                  <div className="font-bold text-lg sm:text-xl mb-4">
                     {job.position} · {job.name}
-                  </MotionP>
+                  </div>
 
-                  <MotionP
-                    className="text-sm sm:text-base text-gray-900"
-                    delay={0.5 + index * 0.1}
-                  >
+                  <div className="text-sm sm:text-base text-gray-900">
                     {job.summary}
-                  </MotionP>
+                  </div>
 
                   {/* Highlights */}
                   <div className="mt-3">
@@ -178,7 +165,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{
-                          delay: 0.6 + index * 0.1 + highlightIndex * 0.05,
+                          delay: 0.2 + index * 0.1 + highlightIndex * 0.05,
                         }}
                       >
                         <span className="text-gray-400 mt-1 text-sm">•</span>
@@ -199,7 +186,7 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{
-                          delay: 0.7 + index * 0.1 + techIndex * 0.05,
+                          delay: 0.3 + index * 0.1 + techIndex * 0.05,
                         }}
                       >
                         {tech.trim()}

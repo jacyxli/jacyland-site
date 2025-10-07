@@ -1,13 +1,7 @@
 "use client";
 
-import {
-  motion,
-  MotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import { useLayoutEffect, useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { PortfolioCard } from "@/components";
 import { portfolioData } from "@/data/portfolio";
 
@@ -71,6 +65,13 @@ export default function PortfolioSection({
     offset: ["start end", "end end"], // full section watched
   });
 
+  // Create all transforms at the top level
+  const scale0 = useTransform(scrollYProgress, [0, 1 / 3], [1.1, 1]);
+  const scale1 = useTransform(scrollYProgress, [1 / 3, 2 / 3], [1.1, 1]);
+  const scale2 = useTransform(scrollYProgress, [2 / 3, 1], [1.1, 1]);
+
+  const scales = [scale0, scale1, scale2];
+
   return (
     <section
       className={`relative section-container bg-gradient-to-b from-white to-black ${
@@ -84,14 +85,10 @@ export default function PortfolioSection({
         ref={containerRef}
       >
         {portfolioData.map((project, i) => {
-          const start = (i * 1) / 3;
-          const end = ((i + 1) * 1) / 3;
-          const scale = useTransform(scrollYProgress, [start, end], [1.1, 1]);
-
           return (
             <motion.div
               key={i}
-              style={{ scale: i === 0 ? 1 : scale }}
+              style={{ scale: i === 0 ? 1 : scales[i] }}
               className="sticky top-0 h-screen w-full py-12"
             >
               <PortfolioCard
