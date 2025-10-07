@@ -21,9 +21,10 @@ const rotatingWords = [
 
 type HeroSectionProps = {
   className?: string;
+  id?: string;
 };
 
-const HeroSection = ({ className }: HeroSectionProps) => {
+const HeroSection = ({ className, id }: HeroSectionProps) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -36,7 +37,8 @@ const HeroSection = ({ className }: HeroSectionProps) => {
   const current = useMemo(() => rotatingWords[index], [index]);
 
   return (
-    <motion.header
+    <motion.section
+      id={id}
       className={`section-container items-start justify-between flex-col !pt-12 ${
         className ?? ""
       }`}
@@ -71,7 +73,7 @@ const HeroSection = ({ className }: HeroSectionProps) => {
           </AnimatePresence>
         </div>
       </div>
-    </motion.header>
+    </motion.section>
   );
 };
 

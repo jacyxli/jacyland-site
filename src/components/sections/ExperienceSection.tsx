@@ -17,6 +17,7 @@ interface Job {
 
 interface ExperienceSectionProps {
   className?: string;
+  id?: string;
 }
 
 const experienceData: Job[] = [
@@ -90,9 +91,10 @@ const experienceData: Job[] = [
   },
 ];
 
-const ExperienceSection = ({ className }: ExperienceSectionProps) => {
+const ExperienceSection = ({ className, id }: ExperienceSectionProps) => {
   return (
     <section
+      id={id}
       className={`min-h-[100svh] bg-white flex flex-col items-center justify-center px-6 py-24 sm:py-32 sm:px-12 ${
         className ?? ""
       }`}

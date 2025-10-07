@@ -13,6 +13,8 @@ interface ContactButtonProps {
   animationDirection?: "x" | "y";
   /** Size of the circular button */
   size?: "sm" | "md" | "lg";
+  /** Theme variant: 'light' or 'dark' */
+  theme?: "light" | "dark";
 }
 
 export default function ContactButton({
@@ -21,8 +23,18 @@ export default function ContactButton({
   hoverText,
   animationDirection = "y",
   size = "md",
+  theme = "dark",
 }: ContactButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
+
+  // Theme-aware styling
+  const isLightTheme = theme === "light";
+  const borderColor = isLightTheme ? "border-black" : "border-white";
+  const iconColor = isLightTheme ? "text-black" : "text-white";
+  const hoverTextColor = isLightTheme ? "text-black" : "text-white";
+  const hoverArrowColor = isLightTheme ? "text-black" : "text-white";
+  const hoverBackgroundColor = isLightTheme ? "bg-black" : "bg-white";
+  const hoverIconColor = isLightTheme ? "text-white" : "text-black";
 
   const sizeClass =
     size === "sm"
@@ -58,10 +70,12 @@ export default function ContactButton({
           animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
           transition={{ duration: 0.2 }}
         >
-          <span className="text-white text-sm font-medium mb-1 whitespace-nowrap font-mono">
+          <span
+            className={`${hoverTextColor} text-sm font-medium mb-1 whitespace-nowrap font-mono`}
+          >
             {hoverText}
           </span>
-          <DownArrowIcon className="w-4 h-4 text-white" />
+          <DownArrowIcon className={`w-4 h-4 ${hoverArrowColor}`} />
         </motion.div>
       )}
 
@@ -70,20 +84,22 @@ export default function ContactButton({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`relative ${sizeClass} rounded-full border-2 border-white overflow-hidden group`}
+        className={`relative ${sizeClass} rounded-full border-2 ${borderColor} overflow-hidden group`}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
-        {/* Light icon (default state) */}
-        <div className="absolute inset-0 flex items-center justify-center bg-transparent text-white">
+        {/* Default icon state */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center bg-transparent ${iconColor}`}
+        >
           {React.createElement(icon, { className: iconSizeClass })}
         </div>
 
-        {/* Dark icon (hover state) */}
+        {/* Hover icon state */}
         <motion.div
-          className="absolute inset-0 flex items-center justify-center bg-white text-black"
+          className={`absolute inset-0 flex items-center justify-center ${hoverBackgroundColor} ${hoverIconColor}`}
           initial={overlayInitial}
           animate={overlayAnimate}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}

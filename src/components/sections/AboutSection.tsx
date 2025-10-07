@@ -6,9 +6,10 @@ import { MotionP } from "@/components";
 
 type AboutSectionProps = {
   className?: string;
+  id?: string;
 };
 
-const AboutSection = ({ className }: AboutSectionProps) => {
+const AboutSection = ({ className, id }: AboutSectionProps) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -20,6 +21,7 @@ const AboutSection = ({ className }: AboutSectionProps) => {
 
   return (
     <motion.section
+      id={id}
       ref={ref}
       className={`section-container bg-black text-white flex flex-col items-center justify-between ${
         className ?? ""

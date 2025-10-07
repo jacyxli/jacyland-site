@@ -55,8 +55,10 @@ function SwapTitle() {
 
 export default function PortfolioSection({
   className,
+  id,
 }: {
   className?: string;
+  id?: string;
 }) {
   const containerRef = useRef(null);
 
@@ -74,6 +76,7 @@ export default function PortfolioSection({
 
   return (
     <section
+      id={id}
       className={`relative section-container bg-gradient-to-b from-white to-black ${
         className ?? ""
       }`}

@@ -11,7 +11,13 @@ import {
   InstagramIcon,
 } from "@/components";
 
-export default function ContactSection({ className }: { className?: string }) {
+export default function ContactSection({
+  className,
+  id,
+}: {
+  className?: string;
+  id?: string;
+}) {
   const typewriterRef = useRef(null);
 
   const typewriterVariants = {
@@ -31,6 +37,7 @@ export default function ContactSection({ className }: { className?: string }) {
 
   return (
     <section
+      id={id}
       className={`w-full bg-black text-white section-container ${
         className ?? ""
       }`}

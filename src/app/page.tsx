@@ -12,17 +12,26 @@ export default function Home() {
   return (
     <div className="font-sans relative snap-y snap-mandatory scroll-smooth">
       {/* Base pinned sections */}
-      <HeroSection className="sticky top-0 h-screen z-0" />
+      <div id="hero"></div>
+
+      <HeroSection id="hero" className="sticky top-0 h-screen z-0" />
+      <div id="about"></div>
       <AboutSection className="sticky top-0 h-screen rounded-t-3xl z-10" />
 
       {/* Experience scrolls ABOVE About */}
-      <ExperienceSection className="min-h-[200vh] bg-gray-100 rounded-t-3xl relative z-20" />
+      <ExperienceSection
+        id="experience"
+        className="min-h-[200vh] bg-gray-100 rounded-t-3xl relative z-20"
+      />
 
       {/* Portfolio scrolls ABOVE Experience */}
-      <PortfolioSection className="relative rounded-t-3xl z-30 -mt-16" />
+      <PortfolioSection
+        id="portfolio"
+        className="relative rounded-t-3xl z-30 -mt-16"
+      />
 
       {/* Contact Section */}
-      <ContactSection className="relative rounded-t-3xl z-50" />
+      <ContactSection id="contact" className="relative rounded-t-3xl z-50" />
     </div>
   );
 }

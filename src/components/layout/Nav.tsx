@@ -1,10 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useState } from "react";
 const Nav = () => {
   const [hovered, setHovered] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+    setHovered(false);
+  };
 
   return (
     <div
@@ -49,22 +59,44 @@ const Nav = () => {
       >
         <ul className="flex flex-col text-gray-800 text-center">
           <li>
-            <Link
-              href="/"
-              onClick={() => setHovered(false)}
-              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300"
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
             >
               Home
-            </Link>
+            </button>
           </li>
           <li>
-            <Link
-              href="/about"
-              onClick={() => setHovered(false)}
-              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300"
+            <button
+              onClick={() => scrollToSection("about")}
+              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
             >
               About
-            </Link>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("experience")}
+              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+            >
+              Experience
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("portfolio")}
+              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+            >
+              Portfolio
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+            >
+              Contact
+            </button>
           </li>
         </ul>
       </motion.div>
