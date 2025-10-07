@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 const Nav = () => {
   const [hovered, setHovered] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -15,6 +18,32 @@ const Nav = () => {
     }
     setHovered(false);
   };
+
+  const handleNavigation = (sectionId: string) => {
+    if (sectionId === "contact") {
+      // Navigate to contact page
+      router.push("/contact");
+    } else {
+      // If not on home page, navigate to home first, then scroll
+      if (pathname !== "/") {
+        router.push(`/#${sectionId}`);
+      } else {
+        // Already on home page, just scroll
+        scrollToSection(sectionId);
+      }
+    }
+    setHovered(false);
+  };
+
+  // Handle hash navigation when page loads
+  useEffect(() => {
+    if (pathname === "/" && window.location.hash) {
+      const sectionId = window.location.hash.substring(1);
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100); // Small delay to ensure page is loaded
+    }
+  }, [pathname]);
 
   return (
     <div
@@ -60,7 +89,7 @@ const Nav = () => {
         <ul className="flex flex-col text-gray-800 text-center">
           <li>
             <button
-              onClick={() => scrollToSection("hero")}
+              onClick={() => handleNavigation("hero")}
               className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
             >
               Home
@@ -68,7 +97,7 @@ const Nav = () => {
           </li>
           <li>
             <button
-              onClick={() => scrollToSection("about")}
+              onClick={() => handleNavigation("about")}
               className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
             >
               About
@@ -76,7 +105,7 @@ const Nav = () => {
           </li>
           <li>
             <button
-              onClick={() => scrollToSection("experience")}
+              onClick={() => handleNavigation("experience")}
               className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
             >
               Experience
@@ -84,7 +113,7 @@ const Nav = () => {
           </li>
           <li>
             <button
-              onClick={() => scrollToSection("portfolio")}
+              onClick={() => handleNavigation("portfolio")}
               className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
             >
               Portfolio
@@ -92,7 +121,7 @@ const Nav = () => {
           </li>
           <li>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => handleNavigation("contact")}
               className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
             >
               Contact

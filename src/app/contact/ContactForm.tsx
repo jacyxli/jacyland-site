@@ -8,8 +8,9 @@ import {
   InstagramIcon,
 } from "@/components";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { useRouter } from "next/navigation";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,8 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [countdown, setCountdown] = useState(10);
+  const router = useRouter();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -42,6 +45,8 @@ export default function ContactForm() {
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
+      console.log(serviceId, templateId, publicKey);
+
       // Validate environment variables
       if (!serviceId || !templateId || !publicKey) {
         throw new Error(
@@ -51,8 +56,8 @@ export default function ContactForm() {
 
       // Prepare template parameters
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
+        name: formData.name,
+        email: formData.email,
         message: formData.message,
         to_email: "jacy.li@outlook.com",
       };
@@ -62,12 +67,12 @@ export default function ContactForm() {
 
       // Show success message
       setIsSubmitted(true);
+      setCountdown(10);
 
-      // Reset form after showing success message
+      // Auto redirect after 10 seconds
       setTimeout(() => {
-        setFormData({ name: "", email: "", message: "" });
-        setIsSubmitted(false);
-      }, 3000);
+        router.push("/");
+      }, 10000);
     } catch (err) {
       console.error("EmailJS error:", err);
       setError("Failed to send message. Please try again.");
@@ -75,6 +80,24 @@ export default function ContactForm() {
       setIsSubmitting(false);
     }
   };
+
+  // Countdown timer effect
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isSubmitted && countdown > 0) {
+      interval = setInterval(() => {
+        setCountdown((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isSubmitted, countdown]);
+
+  const handleGoHome = () => {
+    router.push("/");
+  };
+
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 items-start">
@@ -153,6 +176,7 @@ export default function ContactForm() {
                 required
                 className="w-full bg-transparent border-b border-gray-600 text-black placeholder-gray-500 focus:border-black focus:outline-none py-2"
                 placeholder="Your name"
+                disabled={isSubmitted}
               />
             </div>
             <div>
@@ -165,6 +189,7 @@ export default function ContactForm() {
                 required
                 className="w-full bg-transparent border-b border-gray-600 text-black placeholder-gray-500 focus:border-black focus:outline-none py-2"
                 placeholder="your@email.com"
+                disabled={isSubmitted}
               />
             </div>
             <div>
@@ -179,6 +204,7 @@ export default function ContactForm() {
                 rows={6}
                 className="w-full bg-transparent border-b border-gray-600 text-black placeholder-gray-500 focus:border-black focus:outline-none py-2 resize-none"
                 placeholder="Type your message here..."
+                disabled={isSubmitted}
               />
             </div>
 
@@ -199,40 +225,45 @@ export default function ContactForm() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md"
+                className="text-green-600"
               >
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Message sent successfully! I'll get back to you soon.
-                </div>
+                {/* Success text */}
+                <h3 className="text-base font-semibold mb-2">
+                  Message sent successfully! I'll get back to you shortly :)
+                </h3>
               </motion.div>
             )}
 
             <div className="flex justify-end">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="relative px-4 text-lg font-medium w-full rounded-md overflow-hidden group cursor-pointer bg-black text-white disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {/* Default state */}
-                <div className="flex items-center justify-center py-2 transition-transform duration-300 group-hover:-translate-y-full">
-                  {isSubmitting ? "Sending..." : "Submit"}
-                </div>
-                {/* Hover state */}
-                <div className="absolute inset-0 flex items-center justify-center py-2 transition-transform duration-300 translate-y-full group-hover:translate-y-0">
-                  {isSubmitting ? "Sending..." : "Submit"}
-                </div>
-              </button>
+              {isSubmitted ? (
+                <button
+                  type="submit"
+                  onClick={handleGoHome}
+                  className="relative px-4 text-lg font-medium w-full rounded-md overflow-hidden group cursor-pointer bg-black text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="flex items-center justify-center py-2 transition-transform duration-300 group-hover:-translate-y-full">
+                    Redirecting to Home in {countdown} seconds...
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center py-2 transition-transform duration-300 translate-y-full group-hover:translate-y-0">
+                    Go Back to Home
+                  </div>
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={isSubmitting || isSubmitted}
+                  className="relative px-4 text-lg font-medium w-full rounded-md overflow-hidden group cursor-pointer bg-black text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {/* Default state */}
+                  <div className="flex items-center justify-center py-2 transition-transform duration-300 group-hover:-translate-y-full">
+                    {isSubmitting ? "Sending..." : "Submit"}
+                  </div>
+                  {/* Hover state */}
+                  <div className="absolute inset-0 flex items-center justify-center py-2 transition-transform duration-300 translate-y-full group-hover:translate-y-0">
+                    {isSubmitting ? "Sending..." : "Submit"}
+                  </div>
+                </button>
+              )}
             </div>
           </form>
         </motion.div>
