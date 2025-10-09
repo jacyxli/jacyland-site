@@ -23,6 +23,37 @@ export const metadata: Metadata = {
   title: "Jacy Li",
   description:
     "Full-stack developer and designer crafting thoughtful digital experiences. Portfolio of Jacy Li.",
+  keywords: [
+    "Jacy Li",
+    "Fullstack Engineer",
+    "Product Consultant",
+    "React Developer",
+    "Kotlin Developer",
+    "WeChat Mini-Program",
+    "UI/UX Designer",
+    "Portfolio",
+  ],
+  authors: [{ name: "Jacy Li" }],
+  creator: "Jacy Li",
+  openGraph: {
+    title: "Jacy Li",
+    description:
+      "Full-stack developer and designer crafting thoughtful digital experiences. Portfolio of Jacy Li.",
+    url: "https://jacy-li.com",
+    siteName: "Jacy Li Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jacy Li",
+    description:
+      "Full-stack developer and designer crafting thoughtful digital experiences. Portfolio of Jacy Li.",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.ico",
+  },
 };
 
 export default function RootLayout({

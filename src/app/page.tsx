@@ -8,7 +8,7 @@ import {
   ContactSection,
 } from "@/components";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="font-sans relative snap-y snap-mandatory scroll-smooth">
       {/* Base pinned sections */}
