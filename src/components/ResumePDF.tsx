@@ -40,6 +40,12 @@ interface IconProps {
   viewBox?: string;
 }
 
+interface Skill {
+  name: string;
+  level: string;
+  keywords: string[];
+}
+
 interface ResumeData {
   basics: {
     name: string;
@@ -54,7 +60,7 @@ interface ResumeData {
   };
   work: Job[];
   education: Education[];
-  skills: string[];
+  skills: Skill[];
   interests: string[];
 }
 
@@ -64,7 +70,7 @@ const typedResumeData = rawResumeData as unknown as ResumeData;
 // Register fonts
 Font.register({
   family: "FZLanTing",
-  src: "/fonts/FZLanTing-Bold.ttf",
+  src: "/fonts/FZLanTing.ttf",
 });
 
 Font.register({
@@ -75,13 +81,13 @@ Font.register({
 Font.register({
   family: "Inter",
   src: "/fonts/Inter-Bold.ttf",
-  fontWeight: "bold",
+  fontWeight: 700,
 });
 
 Font.register({
   family: "Inter",
   src: "/fonts/Inter-SemiBold.ttf",
-  fontWeight: "semibold",
+  fontWeight: 600,
 });
 
 Font.register({
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 700,
     marginBottom: 2,
     fontFamily: "FZLanTing",
     color: colors.text.primary,
@@ -164,7 +170,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 13,
-    fontWeight: "bold",
+    fontWeight: 700,
     marginBottom: 10,
     fontFamily: "FZLanTing",
     color: colors.text.primary,
@@ -197,10 +203,10 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   bold: {
-    fontWeight: "bold",
+    fontWeight: 700,
   },
   semibold: {
-    fontWeight: "semibold",
+    fontWeight: 600,
   },
   paragraph: {
     marginBottom: 4,
@@ -215,7 +221,7 @@ const styles = StyleSheet.create({
   skillTitle: {
     fontSize: 10,
     marginBottom: 2,
-    fontWeight: "bold",
+    fontWeight: 700,
   },
   bulletPoint: {
     marginLeft: 10,
@@ -374,12 +380,15 @@ const ResumePDF = () => (
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Skills</Text>
               <View style={styles.skillsContainer}>
-                {typedResumeData.skills.map((skill: string, index: number) => (
+                {typedResumeData.skills.map((skill: Skill, index: number) => (
                   <View
                     key={index}
                     style={[styles.paragraph, styles.jobDescription]}
                   >
-                    <Text style={styles.jobDescription}>{skill}</Text>
+                    <Text style={styles.skillTitle}>{skill.name}</Text>
+                    <Text style={styles.jobDescription}>
+                      {skill.keywords.join(", ")}
+                    </Text>
                   </View>
                 ))}
               </View>

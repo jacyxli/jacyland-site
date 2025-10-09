@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Anton, Space_Mono } from "next/font/google";
 import "./globals.css";
-import { Nav, Footer } from "@/components";
+import { ConditionalLayout } from "@/components";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -66,9 +66,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${anton.variable} ${spaceMono.variable} antialiased overflow-x-hidden`}
       >
-        <Nav />
-        {children}
-        <Footer className="z-40" />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

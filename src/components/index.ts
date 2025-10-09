@@ -8,6 +8,7 @@ export { default as SectionHead } from "./ui/SectionHead";
 export { default as Nav } from "./layout/Nav";
 export { default as Footer } from "./layout/Footer";
 export { default as FlipFooter } from "./layout/FlipFooter";
+export { default as ConditionalLayout } from "./layout/ConditionalLayout";
 
 // Section Components
 export { default as HeroSection } from "./sections/HeroSection";
