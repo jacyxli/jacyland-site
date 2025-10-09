@@ -73,62 +73,59 @@ const Nav = () => {
       </div>
 
       {/* Dropdown Menu */}
-      <motion.div
-        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-        animate={
-          hovered
-            ? { opacity: 1, y: 0, scale: 1 }
-            : { opacity: 0, y: -10, scale: 0.95 }
-        }
-        transition={{ duration: 0.2 }}
-        className={`mt-3 bg-white shadow-lg rounded-lg p-4 w-40 origin-top-right${
-          hovered ? "" : " pointer-events-none"
-        }`}
-        aria-hidden={!hovered}
-      >
-        <ul className="flex flex-col text-gray-800 text-center">
-          <li>
-            <button
-              onClick={() => handleNavigation("hero")}
-              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
-            >
-              Home
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => handleNavigation("about")}
-              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
-            >
-              About
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => handleNavigation("experience")}
-              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
-            >
-              Experience
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => handleNavigation("portfolio")}
-              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
-            >
-              Portfolio
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => handleNavigation("contact")}
-              className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
-            >
-              Contact
-            </button>
-          </li>
-        </ul>
-      </motion.div>
+      {hovered && (
+        <motion.div
+          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+          transition={{ duration: 0.2 }}
+          className="mt-3 bg-white shadow-lg rounded-lg p-4 w-40 origin-top-right"
+          aria-hidden={false}
+        >
+          <ul className="flex flex-col text-gray-800 text-center">
+            <li>
+              <button
+                onClick={() => handleNavigation("hero")}
+                className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigation("about")}
+                className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+              >
+                About
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigation("experience")}
+                className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+              >
+                Experience
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigation("portfolio")}
+                className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+              >
+                Portfolio
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavigation("contact")}
+                className="block px-4 py-2 hover:text-lg hover:font-semibold transition-all duration-300 w-full text-left"
+              >
+                Contact
+              </button>
+            </li>
+          </ul>
+        </motion.div>
+      )}
     </div>
   );
 };
