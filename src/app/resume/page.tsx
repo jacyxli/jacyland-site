@@ -1,16 +1,23 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import dynamic from "next/dynamic";
 
 // Dynamically import the ResumePDF component with no SSR
-const ResumePDF = dynamic(() => import("@/components/ResumePDF"), {
+const ResumePDFEn = dynamic(() => import("@/components/ResumePDF"), {
+  ssr: false,
+});
+
+const ResumePDFZH = dynamic(() => import("@/components/ResumePDFZH"), {
   ssr: false,
 });
 
 export default function ResumePage() {
+  const locale = useLocale();
+
   return (
     <div className="w-full h-screen">
-      <ResumePDF />
+      {locale === "en" ? <ResumePDFEn /> : <ResumePDFZH />}
     </div>
   );
 }

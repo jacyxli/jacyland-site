@@ -26,7 +26,7 @@ export { default as MobileMockup } from "./ui/MobileMockup";
 export { default as WebMockup } from "./ui/WebMockup";
 
 // Utility Components
-export { default as ResumePDF } from "./ResumePDF";
+export { default as ResumePDF } from "./ResumePDFZH";
 
 // Icons
 export { default as DownArrowIcon } from "./icons/DownArrowIcon";
