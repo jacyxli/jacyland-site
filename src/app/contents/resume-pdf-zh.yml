@@ -43,7 +43,7 @@ work:
       - "优化数据爬虫系统性能，通过数据清洗与去重策略，显著提升了数据的可利用率"
 
   - name: NetApp
-    position: 后端工程师，FlashRay 存储团队
+    position: 后端工程师，FlashRay Storage Team
     location: "森尼韦尔, CA, 美国"
     startDate: "2014.08"
     endDate: "2015.10"
