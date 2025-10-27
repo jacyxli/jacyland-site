@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -23,6 +24,7 @@ export default function ContactForm() {
   const [error, setError] = useState("");
   const [countdown, setCountdown] = useState(10);
   const router = useRouter();
+  const t = useTranslations("contactForm");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -73,7 +75,7 @@ export default function ContactForm() {
       }, 10000);
     } catch (err) {
       console.error("EmailJS error:", err);
-      setError("Failed to send message. Please try again.");
+      setError(t("errorMessage"));
     } finally {
       setIsSubmitting(false);
     }
@@ -109,7 +111,7 @@ export default function ContactForm() {
             className="text-[56px] sm:text-[150px] font-anton leading-none sm:text-right text-center"
             style={{ willChange: "transform, opacity" }}
           >
-            GET IN TOUCH
+            {t("heading")}
           </motion.div>
           <motion.p
             initial={{ opacity: 0, x: -50 }}
@@ -118,54 +120,51 @@ export default function ContactForm() {
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
             className="sm:text-lg text-base text-gray-400 sm:mt-8 mt-4 max-w-[340px] sm:text-right text-left"
           >
-            If you&apos;re interested in working together, feel free to send me
-            an email.
+            {t("description")}
           </motion.p>
           <motion.div
-            className="sm:mt-16 hidden sm:block flex sm:justify-end pr-2"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 1 }}
-            style={{ willChange: "transform, opacity" }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+            className="flex gap-4 mt-6"
           >
-            <div className="flex gap-4">
-              <ContactButton
-                href="mailto:jacy.li@outlook.com"
-                icon={MailIcon}
-                hoverText="EMAIL ME"
-                theme="light"
-              />
-              <ContactButton
-                href="https://www.linkedin.com/in/jacy-li/"
-                icon={LinkedInIcon}
-                theme="light"
-              />
-              <ContactButton
-                href="https://github.com/jacyxli"
-                icon={GitHubIcon}
-                theme="light"
-              />
-              <ContactButton
-                href="https://www.instagram.com/jacyxli/"
-                icon={InstagramIcon}
-                theme="light"
-              />
-            </div>
+            <ContactButton
+              href="mailto:jacy.li@outlook.com"
+              icon={MailIcon}
+              size="sm"
+            />
+            <ContactButton
+              href="https://www.linkedin.com/in/jacy-li/"
+              icon={LinkedInIcon}
+              size="sm"
+            />
+            <ContactButton
+              href="https://github.com/jacyxli"
+              icon={GitHubIcon}
+              size="sm"
+            />
+            <ContactButton
+              href="https://www.instagram.com/jacyxli/"
+              icon={InstagramIcon}
+              size="sm"
+            />
           </motion.div>
         </div>
 
-        {/* Right: Contact form */}
+        {/* Right: Form */}
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1.5 }}
-          className="bg-transparent sm:pr-12 pr-0 pt-12"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="sm:pl-12 pl-0 sm:mt-0 mt-12"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm text-gray-400 mb-2">Name</label>
+              <label className="block text-sm text-gray-400 mb-2">
+                {t("nameLabel")}
+              </label>
               <input
                 type="text"
                 name="name"
@@ -173,12 +172,14 @@ export default function ContactForm() {
                 onChange={handleInputChange}
                 required
                 className="w-full bg-transparent border-b border-gray-600 text-black placeholder-gray-500 focus:border-black focus:outline-none py-2"
-                placeholder="Your name"
+                placeholder={t("namePlaceholder")}
                 disabled={isSubmitted}
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-400 mb-2">Email</label>
+              <label className="block text-sm text-gray-400 mb-2">
+                {t("emailLabel")}
+              </label>
               <input
                 type="email"
                 name="email"
@@ -186,13 +187,13 @@ export default function ContactForm() {
                 onChange={handleInputChange}
                 required
                 className="w-full bg-transparent border-b border-gray-600 text-black placeholder-gray-500 focus:border-black focus:outline-none py-2"
-                placeholder="your@email.com"
+                placeholder={t("emailPlaceholder")}
                 disabled={isSubmitted}
               />
             </div>
             <div>
               <label className="block text-sm text-gray-400 mb-2">
-                Message
+                {t("messageLabel")}
               </label>
               <textarea
                 name="message"
@@ -201,7 +202,7 @@ export default function ContactForm() {
                 required
                 rows={6}
                 className="w-full bg-transparent border-b border-gray-600 text-black placeholder-gray-500 focus:border-black focus:outline-none py-2 resize-none"
-                placeholder="Type your message here..."
+                placeholder={t("messagePlaceholder")}
                 disabled={isSubmitted}
               />
             </div>
@@ -227,8 +228,7 @@ export default function ContactForm() {
               >
                 {/* Success text */}
                 <h3 className="text-base font-semibold mb-2">
-                  Message sent successfully! I&apos;ll get back to you shortly
-                  :)
+                  {t("successMessage")}
                 </h3>
               </motion.div>
             )}
@@ -241,10 +241,10 @@ export default function ContactForm() {
                   className="relative px-4 text-lg font-medium w-full rounded-md overflow-hidden group cursor-pointer bg-black text-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <div className="flex items-center justify-center py-2 transition-transform duration-300 group-hover:-translate-y-full">
-                    Redirecting to Home in {countdown} seconds...
+                    {t("redirecting", { countdown })}
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center py-2 transition-transform duration-300 translate-y-full group-hover:translate-y-0">
-                    Go Back to Home
+                    {t("goBackHome")}
                   </div>
                 </button>
               ) : (
@@ -255,11 +255,11 @@ export default function ContactForm() {
                 >
                   {/* Default state */}
                   <div className="flex items-center justify-center py-2 transition-transform duration-300 group-hover:-translate-y-full">
-                    {isSubmitting ? "Sending..." : "Submit"}
+                    {isSubmitting ? t("sending") : t("submit")}
                   </div>
                   {/* Hover state */}
                   <div className="absolute inset-0 flex items-center justify-center py-2 transition-transform duration-300 translate-y-full group-hover:translate-y-0">
-                    {isSubmitting ? "Sending..." : "Submit"}
+                    {isSubmitting ? t("sending") : t("submit")}
                   </div>
                 </button>
               )}

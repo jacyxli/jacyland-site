@@ -1,0 +1,166 @@
+{
+  "hero": {
+    "name": "李嘉",
+    "tagline": "将咖啡转化为代码，\n将问题转化为产品。",
+    "roles": [
+      "全栈工程师 💻",
+      "UI/UX设计师 🎨",
+      "React & 前端构建者 ⚛️",
+      "Kotlin & 后端开发者 🔧",
+      "中小企业技术翻译 💡",
+      "跨文化协作者 🌏",
+      "业余攀岩者 🧗",
+      "深夜编织俱乐部成员 🧶",
+      "瞬间捕捉者 📷",
+      "另类吉他手 🎸",
+      "专业咖啡饮用者 ☕"
+    ]
+  },
+  "about": {
+    "title": "关于我 / 关于我 / 关于我 / 关于我 / 关于我",
+    "greeting": "你好。",
+    "name": "我是李嘉。",
+    "intro": "我是一名拥有10+年经验的<b>全栈工程师</b>——热衷于创建以用户为中心的数字解决方案，让技术充满人性化。",
+    "specialization": "我专注于<b>React、UI/UX设计和微信小程序</b>，在后端方面具备<b>Kotlin、Spring Boot和MySQL</b>的专业知识。我端到端交付应用和平台——从硅谷的财富500强企业到东京的快速发展的初创公司。我还为小企业构建应用，帮助他们数字化工作流程并简化日常运营。",
+    "recent": "最近，我一直在探索如何将<b>AI</b>集成到开发工作流程中，以提高生产力并加速产品创新。"
+  },
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "experience": "经验",
+    "portfolio": "作品集",
+    "contact": "联系"
+  },
+  "experience": {
+    "title": "经验",
+    "downloadResume": "下载完整简历",
+    "jobs": [
+      {
+        "name": "ClassPass",
+        "position": "高级软件工程师",
+        "location": "远程/杭州，中国",
+        "startDate": "2022年12月",
+        "endDate": "2024年12月",
+        "summary": "中国团队的功能负责人和全栈工程师，负责ClassPass微信小程序和内部管理平台。领导端到端功能开发和与产品、设计和营销团队的跨职能协调，为中国大陆用户提供服务。",
+        "techStack": "微信小程序（原生）、React、Kotlin、Java、Spring Boot、Ktor、MySQL、Docker、CI/CD、AWS",
+        "highlights": [
+          "拥有并上线了ClassPass中国微信小程序的端到端功能，包括用户推荐流程、优惠券系统、健身日历和预订评价",
+          "与跨职能利益相关者合作，确定范围并交付与产品目标一致的双周发布",
+          "使用React + Ktor构建和维护ClassPass管理平台上的内部工具，支持运营和数据管理",
+          "引入并维护前端自动化测试，使用腾讯云测试（云测），提高测试覆盖率并减少回归",
+          "领导前端重构：在小程序和管理平台上标准化设计令牌、颜色和组件，确保品牌一致性"
+        ]
+      },
+      {
+        "name": "Vantage Management",
+        "position": "全栈软件工程师",
+        "location": "远程/东京，日本",
+        "startDate": "2018年4月",
+        "endDate": "2022年5月",
+        "summary": "两个SaaS平台的负责人工程师：Keyman Letter（原Posto），直邮营销自动化平台；以及Keyman Database，B2B数据即服务产品。",
+        "techStack": "React、Gatsby.js、Laravel、Elasticsearch、Python、MySQL、Docker、AWS",
+        "highlights": [
+          "Keyman Letter（Posto）：使用React从头开始构建前端，包括自定义WYSIWYG SVG编辑器",
+          "在Laravel中设计和实现后端功能，包括用于同步标准和自定义对象的Salesforce CRM集成",
+          "管理数据库模式更改和数据层逻辑，在没有专门设计师的情况下承担UI/UX所有权",
+          "Keyman Database：使用Gatsby.js构建整个前端，并开发REST API来提供从网络来源爬取的数据",
+          "通过爬虫优化使爬取的人员数量翻倍，并与SEO专家合作进行技术增强"
+        ]
+      },
+      {
+        "name": "NetApp",
+        "position": "后端软件工程师，FlashRay存储团队",
+        "location": "森尼维尔，加州，美国",
+        "startDate": "2014年8月",
+        "endDate": "2017年10月",
+        "summary": "开发FlashRay设置向导，用于NetApp全闪存存储系统的交钥匙安装。通过REST API和Jetty Web服务器组件构建系统管理功能。",
+        "techStack": "Java、REST API、Jetty、Python、自动化测试",
+        "highlights": [
+          "开发FlashRay设置向导，用于NetApp全闪存存储系统的交钥匙安装",
+          "通过REST API和Jetty Web服务器组件构建系统管理功能",
+          "增强用于自动化IO测试和故障注入的Python框架"
+        ]
+      },
+      {
+        "name": "自由职业开发者和UI开发者",
+        "position": "自由职业全栈开发者与设计师",
+        "location": "远程",
+        "startDate": "2014年",
+        "endDate": "至今",
+        "summary": "为个人和小企业设计和开发小规模Web项目，专注于前端实现和UI/UX设计。工作包括个人网站、静态内容归档、内部工具和休闲游戏。",
+        "techStack": "React、Gatsby.js、Next.js、Tailwind CSS、Firebase、Ant Design、Vue.js、WebSocket、腾讯云开发",
+        "highlights": [
+          "使用React、Gatsby.js、Next.js、Tailwind CSS和Material UI在Netlify上构建和部署个人网站和博客",
+          "通过从已停用网站爬取内容并使用Algolia索引，创建静态归档站点",
+          "使用React、Firebase和Ant Design开发简单的库存管理应用",
+          "使用Vue.js和WebSocket为多人数学游戏做出贡献，并领导UI重新设计"
+        ]
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "精选 / 作品",
+    "projects": [
+      {
+        "sectionTitle": "CLASSPASS中国",
+        "context": "微信小程序与Web开发",
+        "description": "为中国大陆用户设计的本地化健身预订体验。与微信集成，实现无缝访问、课程发现和预订管理——一切都针对当地用户习惯和支付系统量身定制。",
+        "features": [
+          "发现和预订健身课程",
+          "管理会员和套餐",
+          "微信支付集成",
+          "健身日历和用户评价"
+        ],
+        "role": "作为ClassPass中国工程团队的一部分，负责端到端开发的功能负责人。"
+      },
+      {
+        "sectionTitle": "延吉微信小程序",
+        "context": "产品概念、设计与开发",
+        "description": "为攀岩点品牌构建的定制化基于微信的产品目录，配有集成管理系统，用于展示收藏品并在Web和移动端管理产品信息。",
+        "features": [
+          "可配置的产品列表和详情页",
+          "产品发现的筛选、搜索和排序",
+          "客服集成和反馈处理",
+          "用于产品 and content管理的管理仪表板"
+        ],
+        "role": "唯一设计师-工程师，推动产品定义、UX设计和从启动到上线的全栈开发。"
+      },
+      {
+        "sectionTitle": "KEYMAN数据库",
+        "context": "Web开发与数据集成",
+        "description": "用于发现决策者和联系人的销售线索情报平台。用户按公司、职位或关键词搜索；结果由Elasticsearch驱动，并由带有数据清理/规范化的自动化爬取管道提供。",
+        "features": [
+          "快速全文+分面搜索",
+          "公司/人员档案页",
+          "带有数据规范化的爬虫更新",
+          "响应式UI和SEO优化架构"
+        ],
+        "role": "前端负责人，在全栈开发、搜索优化和数据集成方面进行协作。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "感谢\n来访 :)",
+    "subtitle": "让我们一起\n创造些很棒的东西吧？",
+    "subtitleMobile": "让我们一起\n创造些很棒的东西\n吧？",
+    "button": "联系我们",
+    "contactMe": "发邮件",
+    "connectWithMe": "与我联系"
+  },
+  "contactForm": {
+    "heading": "联系我",
+    "description": "给我留言或发送电子邮件。",
+    "nameLabel": "姓名",
+    "namePlaceholder": "您的姓名",
+    "emailLabel": "邮箱",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "留言",
+    "messagePlaceholder": "在此输入您的留言...",
+    "submit": "提交",
+    "sending": "发送中...",
+    "errorMessage": "发送失败，请重试。",
+    "successMessage": "消息发送成功！我会尽快回复您 :)",
+    "redirecting": "{countdown}秒后返回首页...",
+    "goBackHome": "返回首页"
+  }
+}

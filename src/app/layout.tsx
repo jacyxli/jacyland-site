@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Anton, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { ConditionalLayout } from "@/components";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -56,17 +59,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const messages = await getMessages();
+
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${anton.variable} ${spaceMono.variable} antialiased overflow-x-hidden`}
       >
-        <ConditionalLayout>{children}</ConditionalLayout>
+        <NextIntlClientProvider messages={messages}>
+          <ConditionalLayout>{children}</ConditionalLayout>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

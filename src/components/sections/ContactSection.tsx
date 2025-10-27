@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import {
   ContactButton,
   DownArrowIcon,
@@ -10,6 +11,7 @@ import {
   GitHubIcon,
   InstagramIcon,
 } from "@/components";
+import { useTranslations } from "next-intl";
 
 export default function ContactSection({
   className,
@@ -19,13 +21,14 @@ export default function ContactSection({
   id?: string;
 }) {
   const typewriterRef = useRef(null);
+  const t = useTranslations("contact");
 
   const typewriterVariants = {
     hidden: {},
     show: {
       transition: {
         staggerChildren: 0.03,
-        delayChildren: 0.8, // Start after main title animation (0.6s + 0.2s buffer)
+        delayChildren: 0.8,
       },
     },
   };
@@ -33,6 +36,22 @@ export default function ContactSection({
   const charVariants = {
     hidden: { opacity: 0 },
     show: { opacity: 1 },
+  };
+
+  const renderTextLines = (text: string) => {
+    return text.split("\n").map((line, lineIndex) => (
+      <div key={lineIndex}>
+        {Array.from(line).map((char, charIndex) => (
+          <motion.span
+            key={`${lineIndex}-${charIndex}`}
+            variants={charVariants}
+            className="inline-block"
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+      </div>
+    ));
   };
 
   return (
@@ -52,9 +71,7 @@ export default function ContactSection({
           className="sm:-ml-14 -ml-7 text-[56px] sm:text-[96px] font-anton leading-tight"
           style={{ willChange: "transform, opacity" }}
         >
-          thank you for
-          <br />
-          stopping by :)
+          {t("title")}
         </motion.div>
 
         {/* Row 2: Two-column grid, left has right-aligned subheading */}
@@ -69,72 +86,14 @@ export default function ContactSection({
               className="text-left text-2xl tracking-wider text-gray-300"
               style={{ minHeight: "6rem" }}
             >
-              {/* Desktop/Tablet: 2 lines */}
+              {/* Desktop/Tablet: Use subtitle */}
               <div className="hidden sm:block">
-                {/* Line 1: "How about we make something " */}
-                <div>
-                  {Array.from("How about we make something ").map((char, i) => (
-                    <motion.span
-                      key={`sm-line1-${i}`}
-                      variants={charVariants}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </div>
-                {/* Line 2: "awesome together?" */}
-                <div>
-                  {Array.from("awesome together?").map((char, i) => (
-                    <motion.span
-                      key={`sm-line2-${i}`}
-                      variants={charVariants}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </div>
+                {renderTextLines(t("subtitle"))}
               </div>
 
-              {/* Mobile: 3 lines */}
+              {/* Mobile: Use mobile subtitle */}
               <div className="block sm:hidden">
-                {/* Line 1: "How about we make " */}
-                <div>
-                  {Array.from("How about we make ").map((char, i) => (
-                    <motion.span
-                      key={`mobile-line1-${i}`}
-                      variants={charVariants}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </div>
-                {/* Line 2: "something awesome" */}
-                <div>
-                  {Array.from("something awesome").map((char, i) => (
-                    <motion.span
-                      key={`mobile-line2-${i}`}
-                      variants={charVariants}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </div>
-                {/* Line 3: "together?" */}
-                <div>
-                  {Array.from("together?").map((char, i) => (
-                    <motion.span
-                      key={`mobile-line3-${i}`}
-                      variants={charVariants}
-                      className="inline-block"
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </div>
+                {renderTextLines(t("subtitleMobile"))}
               </div>
             </motion.div>
             {/* Let's connect button */}
@@ -146,25 +105,25 @@ export default function ContactSection({
               transition={{
                 duration: 0.5,
                 ease: "easeOut",
-                delay: 1.5, // Typewriter delay (0.8s) + typewriter duration (~0.7s)
+                delay: 1.5,
               }}
               style={{ willChange: "transform, opacity" }}
             >
-              <a
+              <Link
                 href="/contact"
                 className="relative text-lg rounded-3xl px-4 py-2 border-2 border-white overflow-hidden group cursor-pointer bg-white text-black"
               >
                 {/* Light state (default) */}
                 <div className="relative z-10 flex items-center justify-center bg-transparent gap-2">
                   <span className="text-black group-hover:text-white transition-colors duration-300">
-                    Let&apos;s Connect
+                    {t("button")}
                   </span>
                   <DownArrowIcon className="w-5 h-4 -rotate-90 text-black group-hover:text-white group-hover:-rotate-45 transition-all duration-300" />
                 </div>
 
                 {/* Dark state (hover) */}
                 <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              </a>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -182,12 +141,12 @@ export default function ContactSection({
             <ContactButton
               href="mailto:jacy.li@outlook.com"
               icon={MailIcon}
-              hoverText="EMAIL ME"
+              hoverText={t("contactMe")}
             />
             <ContactButton
               href="https://www.linkedin.com/in/jacy-li/"
               icon={LinkedInIcon}
-              hoverText="CONNECT WITH ME"
+              hoverText={t("connectWithMe")}
             />
             <ContactButton
               href="https://github.com/jacyxli"

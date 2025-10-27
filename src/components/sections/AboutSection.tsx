@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MotionP } from "@/components";
+import { useTranslations } from "next-intl";
 
 type AboutSectionProps = {
   className?: string;
@@ -11,6 +12,7 @@ type AboutSectionProps = {
 
 const AboutSection = ({ className, id }: AboutSectionProps) => {
   const ref = useRef(null);
+  const t = useTranslations("about");
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -33,7 +35,7 @@ const AboutSection = ({ className, id }: AboutSectionProps) => {
             className="font-anton text-5xl sm:text-[150px] font-bold whitespace-nowrap text-center"
             style={{ x }}
           >
-            ABOUT ME / ABOUT ME / ABOUT ME / ABOUT ME / ABOUT ME
+            {t("title")}
           </motion.h1>
         </motion.div>
       </div>
@@ -45,31 +47,27 @@ const AboutSection = ({ className, id }: AboutSectionProps) => {
           {/* Column 2: Hey. I'm Jacy */}
           <div className="text-left">
             <MotionP className="font-bold text-2xl" duration={1} delay={0.1}>
-              <span className="opacity-60">Hey.</span> I&apos;m Jacy.
+              <span className="opacity-60">{t("greeting")}</span> {t("name")}
             </MotionP>
           </div>
 
           {/* Columns 3-4: Combined content */}
           <div className="sm:col-span-2 flex flex-col gap-4 text-sm sm:text-base opacity-90">
             <MotionP duration={1} delay={0.2}>
-              I&apos;m a <b>fullstack engineer</b> with 10+ years of experience
-              — passionate about creating user-focused digital solutions that
-              make technology feel human.
+              {t.rich("intro", {
+                b: (chunks) => <b>{chunks}</b>,
+              })}
             </MotionP>
 
             <MotionP duration={1} delay={0.3}>
-              I specialize in{" "}
-              <b>React, UI/UX design, and WeChat mini-programs</b>, with backend
-              expertise in <b>Kotlin, Spring Boot, and MySQL</b>. I&apos;ve
-              delivered apps and platforms end-to-end — from Fortune 500
-              enterprises in Silicon Valley to fast-moving startups in Tokyo. I
-              also build apps for small businesses, helping them digitalize
-              workflows and simplify daily operations.
+              {t.rich("specialization", {
+                b: (chunks) => <b>{chunks}</b>,
+              })}
             </MotionP>
             <MotionP duration={1} delay={0.4}>
-              Recently, I&apos;ve been exploring how to integrate <b>AI</b> into
-              development workflows to boost productivity and accelerate product
-              innovation.
+              {t.rich("recent", {
+                b: (chunks) => <b>{chunks}</b>,
+              })}
             </MotionP>
           </div>
         </div>

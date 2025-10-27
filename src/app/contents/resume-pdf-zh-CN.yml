@@ -1,0 +1,132 @@
+meta:
+  language: zh-CN
+
+basics:
+  name: 李心安 (Jacy Li)
+  label: 全栈工程师 / 产品顾问 | 专注以技术与用户体验驱动产品成功
+  location:
+    city: 杭州
+    country: 中国
+  email: jacy.li@outlook.com
+  phone: +86 13957124341
+  github: https://github.com/jacyxli
+  website: https://jacy-li.com
+
+work:
+  - name: ClassPass
+    position: 高级软件工程师
+    location: 远程/杭州，中国
+    startDate: "2022.12"
+    endDate: "2024.12"
+    techStack: "微信小程序 (Native), React, Spring Boot, Ktor, MySQL, Docker, CI/CD, AWS"
+    summary: "作为团队唯一的全栈工程师，并担任多项关键功能的项目负责人 (Project Lead)，全面负责ClassPass中国区小程序与内部平台的技术实现与产品迭代。"
+    highlights:
+      - "主导并交付了推荐邀请、优惠券、课程日历、课程评价等核心用户功能，覆盖从需求分析到上线运维的全流程"
+      - "使用 React + Ktor 构建内部数据管理工具，优化了运营团队的工作流程与效率"
+      - "驱动前端架构重构，建立统一的设计标准与可复用组件库，提升了UI一致性与团队开发效率"
+      - "引入基于腾讯云测的自动化测试流程，显著提升测试覆盖率，有效提升回归测试的效率"
+      - "协调产品、设计与市场团队，规划并管理每周版本发布，确保跨部门目标一致与顺利发布"
+
+  - name: Vantage Management
+    position: 全栈软件工程师
+    location: 远程/东京，日本
+    startDate: "2018.04"
+    endDate: "2022.05"
+    techStack: "React, Gatsby.js, Laravel, MySQL, Docker, CI/CD, AWS, Elasticsearch"
+    summary: "作为主力工程师，负责两款B2B SaaS产品（Keyman Letter直邮自动化平台、Keyman Database企业人事数据库）的全栈开发与架构设计。"
+    highlights:
+      - "从零构建产品前端界面（React + Gatsby.js），并开发了内含自定义SVG编辑器的复杂交互模块"
+      - "设计并实现了完整的Salesforce CRM同步功能，涵盖标准与自定义对象的UI、API及后端数据逻辑"
+      - "主导Laravel后端服务架构与MySQL数据库建模，保障系统稳定性与可扩展性"
+      - "在团队暂无专职设计师期间，主动承担并主导了产品的UI/UX设计工作"
+      - "优化数据爬虫系统性能，通过数据清洗与去重策略，显著提升了核心人员数据的可利用率"
+
+  - name: NetApp
+    position: 后端工程师，FlashRay 存储团队
+    location: "森尼韦尔, CA, 美国"
+    startDate: "2014.08"
+    endDate: "2015.10"
+    highlights:
+      - "主导开发了用于NetApp FlashRay全闪存阵列的桌面安装系统"
+      - "参与基于REST API与Jetty组件的系统管理功能开发"
+      - "参与Python自动化测试框架的开发，包括模拟IO与故障注入测试"
+
+  - name:
+    position: 自由开发者 & UI 设计师
+    location: 远程
+    startDate: "2014"
+    endDate: "至今"
+    highlights:
+      - "为个人创作者及中小企业提供技术咨询与产品开发服务，涵盖网站搭建、UI/UX设计及内部工具定制"
+      - "使用React、Next.js、Tailwind CSS等技术栈开发并部署多个高性能网站与博客"
+      - "构建静态归档网站，通过Algolia实现内容索引与全文搜索"
+      - "为小型商家开发轻量级库存管理工具（React + Firebase + Ant Design）"
+      - "合作开发多人在线数学游戏（Vue.js），主导前端代码重构与视觉体验全面改版"
+
+education:
+  - name: 布林茅尔学院 (Bryn Mawr College)
+    location: "布林莫尔, PA, 美国"
+    area: 计算机科学
+    studyType: 计算机科学文学学士
+    startDate: "2010.08"
+    endDate: "2014.05"
+    score: 专业GPA 3.9/4.0
+    thesis: "基于Android的增强现实图书馆应用"
+
+skills:
+  - name: 前端开发
+    level: 专家
+    keywords:
+      - React
+      - Next.js
+      - Gatsby.js
+      - Vue.js
+      - 微信小程序 (Native)
+      - Tailwind CSS
+      - Framer Motion
+  - name: 后端开发
+    level: 高级
+    keywords:
+      - Spring Boot
+      - Ktor
+      - Laravel
+  - name: 数据库
+    level: 高级
+    keywords:
+      - MySQL
+      - 数据库设计
+      - 查询优化
+  - name: DevOps
+    level: 高级
+    keywords:
+      - Docker
+      - CI/CD
+      - AWS
+  - name: 测试
+    level: 高级
+    keywords:
+      - 单元测试
+      - 腾讯云测
+      - Cypress
+  - name: 设计工具
+    level: 高级
+    keywords:
+      - Figma
+      - Adobe XD
+      - Adobe Photoshop
+      - Adobe Illustrator
+  - name: 语言
+    level: 专家
+    keywords:
+      - 中文 (母语)
+      - 英语 (精通)
+      - 日语 (流利, JLPT N1)
+
+interests:
+  - 攀岩
+  - 摄影
+  - 电影制作
+  - CrossFit
+  - 电吉他
+  - 单板滑雪
+  - 阅读

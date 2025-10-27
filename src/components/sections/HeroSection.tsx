@@ -4,20 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { slowTransition } from "@/utils/motion";
 import { MotionP } from "@/components";
-
-const rotatingWords = [
-  "Fullstack Engineer 💻",
-  "UI/UX Designer 🎨",
-  "React & Frontend Builder ⚛️",
-  "Kotlin & Backend Tinkerer 🔧",
-  "Tech Translator for Small Biz 💡",
-  "Cross-Cultural Collaborator 🌏",
-  "Amateur Rock Climber 🧗",
-  "Midnight Knitting Club Member 🧶",
-  "Moment Capturer 📷",
-  "Off-Beat Guitarist 🎸",
-  "Professional Coffee Drinker ☕",
-];
+import { useTranslations } from "next-intl";
 
 type HeroSectionProps = {
   className?: string;
@@ -26,15 +13,21 @@ type HeroSectionProps = {
 
 const HeroSection = ({ className, id }: HeroSectionProps) => {
   const [index, setIndex] = useState(0);
+  const t = useTranslations("hero");
+
+  const rotatingWords = useMemo(() => {
+    const roles = t.raw("roles") as string[];
+    return roles;
+  }, [t]);
 
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((prev) => (prev + 1) % rotatingWords.length);
     }, 1800);
     return () => clearInterval(id);
-  }, []);
+  }, [rotatingWords.length]);
 
-  const current = useMemo(() => rotatingWords[index], [index]);
+  const current = useMemo(() => rotatingWords[index], [index, rotatingWords]);
 
   return (
     <motion.section
@@ -46,16 +39,21 @@ const HeroSection = ({ className, id }: HeroSectionProps) => {
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.05),transparent_50%)]" />
 
       <div className="z-[1] font-mono font-bold text-2xl sm:text-3xl tracking-tightest">
-        Jacy Li
+        {t("name")}
       </div>
       <div className="flex flex-col items-start gap-2 w-full">
         <MotionP
           className="font-anton text-5xl sm:text-8xl leading-tighter"
           delay={0.1}
         >
-          Turning coffee into code,
-          <br />
-          and problems into products.
+          {t("tagline")
+            .split("\n")
+            .map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < t("tagline").split("\n").length - 1 && <br />}
+              </span>
+            ))}
         </MotionP>
 
         <div className="relative sm:h-16 h-12 w-full overflow-hidden mt-2 sm:mt-6 font-mono text-lg sm:text-4xl">

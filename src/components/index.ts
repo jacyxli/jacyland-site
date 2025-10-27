@@ -9,6 +9,7 @@ export { default as Nav } from "./layout/Nav";
 export { default as Footer } from "./layout/Footer";
 export { default as FlipFooter } from "./layout/FlipFooter";
 export { default as ConditionalLayout } from "./layout/ConditionalLayout";
+export { default as LocaleSwitcher } from "./LocaleSwitcher";
 
 // Section Components
 export { default as HeroSection } from "./sections/HeroSection";

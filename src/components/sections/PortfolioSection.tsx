@@ -3,10 +3,11 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { PortfolioCard } from "@/components";
-import { portfolioData } from "@/data/portfolio";
+import { useTranslations } from "next-intl";
 
 function SwapTitle() {
   const ref = useRef<HTMLDivElement | null>(null);
+  const t = useTranslations("portfolio");
 
   // scroll setup
   const { scrollYProgress } = useScroll({
@@ -18,6 +19,10 @@ function SwapTitle() {
     stiffness: 80,
     damping: 20,
   });
+
+  const titleParts = t("title").split("/");
+  const selectedPart = titleParts[0] || "Selected";
+  const workPart = titleParts[1] || "Work";
 
   const selectedX = useTransform(smooth, [0.1, 0.6], ["100vw", "0vw"]);
   const workX = useTransform(smooth, [0.1, 0.6], ["-100vw", "0vw"]);
@@ -35,7 +40,7 @@ function SwapTitle() {
           style={{ x: selectedX }}
           className="whitespace-nowrap mix-blend-difference"
         >
-          Selected
+          {selectedPart}
         </motion.h1>
 
         {/* Work: right → left */}
@@ -43,7 +48,7 @@ function SwapTitle() {
           style={{ x: workX }}
           className="whitespace-nowrap text-right mix-blend-difference"
         >
-          Work
+          {workPart}
         </motion.h1>
         <motion.h1 className="mix-blend-difference" style={{ opacity }}>
           /
@@ -51,6 +56,14 @@ function SwapTitle() {
       </div>
     </div>
   );
+}
+
+interface Project {
+  sectionTitle: string;
+  context: string;
+  description: string;
+  features: string[];
+  role: string;
 }
 
 export default function PortfolioSection({
@@ -61,13 +74,14 @@ export default function PortfolioSection({
   id?: string;
 }) {
   const containerRef = useRef(null);
+  const t = useTranslations("portfolio");
+  const projects = t.raw("projects") as Project[];
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end end"], // full section watched
+    offset: ["start end", "end end"],
   });
 
-  // Create all transforms at the top level
   const scale0 = useTransform(scrollYProgress, [0, 1 / 3], [1.1, 1]);
   const scale1 = useTransform(scrollYProgress, [1 / 3, 2 / 3], [1.1, 1]);
   const scale2 = useTransform(scrollYProgress, [2 / 3, 1], [1.1, 1]);
@@ -87,7 +101,7 @@ export default function PortfolioSection({
         className={`relative sm:h-[300vh] hidden sm:block `}
         ref={containerRef}
       >
-        {portfolioData.map((project, i) => {
+        {projects.map((project, i) => {
           return (
             <motion.div
               key={i}
@@ -98,16 +112,35 @@ export default function PortfolioSection({
                 key={i}
                 className="px-4 sm:p-8 relative"
                 sectionTitle={project.sectionTitle}
-                cardIndex={project.cardIndex}
-                contentType={project.type}
+                cardIndex={i + 1}
+                contentType={i === 2 ? "web" : "mobile"}
                 context={project.context}
                 contentDescription={project.description}
                 contentFeatures={project.features}
                 role={project.role}
-                images={project.images}
-                link={project.link}
-                mockupMode={project.mockupMode}
-                actionButtons={project.actions || undefined}
+                images={
+                  i === 0
+                    ? [
+                        "/classpass-1.PNG",
+                        "/classpass-2.PNG",
+                        "/classpass-3.PNG",
+                        "/classpass-4.PNG",
+                        "/classpass-5.PNG",
+                      ]
+                    : i === 1
+                    ? [
+                        "/Yanji-1.PNG",
+                        "/Yanji-2.PNG",
+                        "/Yanji-3.PNG",
+                        "/Yanji-4.PNG",
+                      ]
+                    : ["/keyman-db.png"]
+                }
+                link={
+                  i === 2 ? "https://keyman-db.smart-letter.com/" : undefined
+                }
+                mockupMode={i === 2 ? "scroll" : "swiper"}
+                actionButtons={undefined}
               />
             </motion.div>
           );
@@ -115,22 +148,39 @@ export default function PortfolioSection({
       </div>
 
       <div className="sm:hidden relative gap-4 flex flex-col mt-8 box-border">
-        {portfolioData.map((project, i) => {
+        {projects.map((project, i) => {
           return (
             <PortfolioCard
               key={i}
               className="px-4 sm:p-8 relative"
               sectionTitle={project.sectionTitle}
-              cardIndex={project.cardIndex}
-              contentType={project.type}
+              cardIndex={i + 1}
+              contentType={i === 2 ? "web" : "mobile"}
               context={project.context}
               contentDescription={project.description}
               contentFeatures={project.features}
               role={project.role}
-              images={project.images}
-              link={project.link}
-              mockupMode={project.mockupMode}
-              actionButtons={project.actions || undefined}
+              images={
+                i === 0
+                  ? [
+                      "/classpass-1.PNG",
+                      "/classpass-2.PNG",
+                      "/classpass-3.PNG",
+                      "/classpass-4.PNG",
+                      "/classpass-5.PNG",
+                    ]
+                  : i === 1
+                  ? [
+                      "/Yanji-1.PNG",
+                      "/Yanji-2.PNG",
+                      "/Yanji-3.PNG",
+                      "/Yanji-4.PNG",
+                    ]
+                  : ["/keyman-db.png"]
+              }
+              link={i === 2 ? "https://keyman-db.smart-letter.com/" : undefined}
+              mockupMode={i === 2 ? "scroll" : "swiper"}
+              actionButtons={undefined}
             />
           );
         })}

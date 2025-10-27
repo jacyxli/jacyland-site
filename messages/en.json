@@ -1,0 +1,166 @@
+{
+  "hero": {
+    "name": "Jacy Li",
+    "tagline": "Turning coffee into code,\nand problems into products.",
+    "roles": [
+      "Fullstack Engineer 💻",
+      "UI/UX Designer 🎨",
+      "React & Frontend Builder ⚛️",
+      "Kotlin & Backend Tinkerer 🔧",
+      "Tech Translator for Small Biz 💡",
+      "Cross-Cultural Collaborator 🌏",
+      "Amateur Rock Climber 🧗",
+      "Midnight Knitting Club Member 🧶",
+      "Moment Capturer 📷",
+      "Off-Beat Guitarist 🎸",
+      "Professional Coffee Drinker ☕"
+    ]
+  },
+  "about": {
+    "title": "ABOUT ME / ABOUT ME / ABOUT ME / ABOUT ME / ABOUT ME",
+    "greeting": "Hey.",
+    "name": "I'm Jacy.",
+    "intro": "I'm a <b>fullstack engineer</b> with 10+ years of experience — passionate about creating user-focused digital solutions that make technology feel human.",
+    "specialization": "I specialize in <b>React, UI/UX design, and WeChat mini-programs</b>, with backend expertise in <b>Kotlin, Spring Boot, and MySQL</b>. I've delivered apps and platforms end-to-end — from Fortune 500 enterprises in Silicon Valley to fast-moving startups in Tokyo. I also build apps for small businesses, helping them digitalize workflows and simplify daily operations.",
+    "recent": "Recently, I've been exploring how to integrate <b>AI</b> into development workflows to boost productivity and accelerate product innovation."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "experience": {
+    "title": "Experience",
+    "downloadResume": "Download Full Resume",
+    "jobs": [
+      {
+        "name": "ClassPass",
+        "position": "Senior Software Engineer",
+        "location": "Remote/Hangzhou, China",
+        "startDate": "Dec 2022",
+        "endDate": "Dec 2024",
+        "summary": "Feature owner and fullstack engineer in the China squad, responsible for the ClassPass WeChat mini-program and internal admin portal. Led end-to-end feature development and cross-functional coordination with product, design, and marketing teams to serve mainland Chinese users.",
+        "techStack": "WeChat mini-program (native), React, Kotlin, Java, Spring Boot, Ktor, MySQL, Docker, CI/CD, AWS",
+        "highlights": [
+          "Owned and shipped end-to-end features on the ClassPass China WeChat mini-program, including User Referral flows, Coupon System, Workout Calendar, and Booking Reviews",
+          "Collaborated with cross-functional stakeholders to define scope and deliver weekly releases aligned with product goals",
+          "Built and maintained internal tools on the ClassPass Admin platform using React + Ktor to support operations and data management",
+          "Introduced and maintained frontend automated testing using Tencent Cloud Test (云测), improving test coverage and reducing regressions",
+          "Led frontend refactoring: standardized design tokens, colors, and components across mini-program and admin portal for brand consistency"
+        ]
+      },
+      {
+        "name": "Vantage Management",
+        "position": "Fullstack Software Engineer",
+        "location": "Remote/Tokyo, Japan",
+        "startDate": "Apr 2018",
+        "endDate": "May 2022",
+        "summary": "Lead engineer for two SaaS platforms: Keyman Letter (formerly Posto), a direct mail marketing automation platform; and Keyman Database, a B2B data-as-a-service product.",
+        "techStack": "React, Gatsby.js, Laravel, Elasticsearch, Python, MySQL, Docker, AWS",
+        "highlights": [
+          "Keyman Letter (Posto): Built the frontend from scratch with React, including a custom WYSIWYG SVG editor",
+          "Designed and implemented backend features in Laravel, including a Salesforce CRM integration for syncing standard and custom objects",
+          "Managed database schema changes and data layer logic, and took on UI/UX ownership in the absence of a dedicated designer",
+          "Keyman Database: Built the entire frontend using Gatsby.js and developed REST APIs to serve data crawled from web sources",
+          "Doubled the amount of crawled personnel through crawler optimization and collaborated with SEO specialist for technical enhancements"
+        ]
+      },
+      {
+        "name": "NetApp",
+        "position": "Backend Software Engineer, FlashRay Storage Team",
+        "location": "Sunnyvale, CA, USA",
+        "startDate": "Aug 2014",
+        "endDate": "Oct 2017",
+        "summary": "Developed the FlashRay Setup Wizard for turnkey installation of NetApp's All Flash Array storage system. Built system management features via REST APIs and Jetty web server components.",
+        "techStack": "Java, REST APIs, Jetty, Python, Automated Testing",
+        "highlights": [
+          "Developed the FlashRay Setup Wizard for turnkey installation of NetApp's All Flash Array storage system",
+          "Built system management features via REST APIs and Jetty web server components",
+          "Enhanced Python-based frameworks for automated IO testing and fault injection"
+        ]
+      },
+      {
+        "name": "Freelance Developer & UI Developer",
+        "position": "Freelance Fullstack Developer & Designer",
+        "location": "Remote",
+        "startDate": "2014",
+        "endDate": "Present",
+        "summary": "Designed and developed small-scale web projects for individuals and small businesses, focusing on frontend implementation and UI/UX design. Work includes personal websites, static content archives, internal tools, and casual games.",
+        "techStack": "React, Gatsby.js, Next.js, Tailwind CSS, Firebase, Ant Design, Vue.js, WebSocket, Tencent Cloudbase",
+        "highlights": [
+          "Built and deployed personal websites and blogs using React, Gatsby.js, Next.js, Tailwind CSS, and Material UI on Netlify",
+          "Created a static archive site by crawling content from a defunct website and indexing it with Algolia for search",
+          "Developed a simple inventory management app using React, Firebase, and Ant Design",
+          "Contributed to a multiplayer math game with Vue.js and WebSocket, and led the UI redesign"
+        ]
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Selected / Work",
+    "projects": [
+      {
+        "sectionTitle": "CLASSPASS CHINA",
+        "context": "WeChat Mini-Program & Web Development",
+        "description": "A localized fitness booking experience designed for users in mainland China. Integrated with WeChat for seamless access, class discovery, and booking management — all tailored to local user habits and payment systems.",
+        "features": [
+          "Discover and book fitness classes",
+          "Manage memberships and packages",
+          "WeChat Pay integration",
+          "Workout calendar & User Reviews"
+        ],
+        "role": "Feature owner responsible for end-to-end development as part of the ClassPass China engineering team."
+      },
+      {
+        "sectionTitle": "YANJI WECHAT MINI-PROGRAM",
+        "context": "Product Concept, Design & Development",
+        "description": "A customized WeChat-based product catalog with an integrated admin system, built for a climbing-hold brand to showcase collections and manage product information across web and mobile.",
+        "features": [
+          "Configurable product list and detail pages",
+          "Filter, search, and sort for product discovery",
+          "Customer service integration and feedback handling",
+          "Admin dashboard for product and content management"
+        ],
+        "role": "Sole designer-engineer, driving product definition, UX design, and fullstack development through launch."
+      },
+      {
+        "sectionTitle": "KEYMAN DATABASE",
+        "context": "Web Development & Data Integration",
+        "description": "Sales-lead intelligence platform for discovering decision-makers and contacts. Users search by company, title, or keywords; results are powered by Elasticsearch and fed by an automated crawling pipeline with data cleaning/normalization.",
+        "features": [
+          "Fast full-text + faceted search",
+          "Company/personnel profile pages",
+          "Crawler-fed updates with data normalization",
+          "Responsive UI and SEO-optimized architecture"
+        ],
+        "role": "Frontend lead, collaborating across fullstack development, search optimization, and data integration."
+      }
+    ]
+  },
+  "contact": {
+    "title": "thank you for\nstopping by :)",
+    "subtitle": "How about we make something\nawesome together?",
+    "subtitleMobile": "How about we make\nsomething awesome\ntogether?",
+    "button": "Let's Connect",
+    "contactMe": "EMAIL ME",
+    "connectWithMe": "CONNECT WITH ME"
+  },
+  "contactForm": {
+    "heading": "GET IN TOUCH",
+    "description": "Drop me a line or send me an email.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Type your message here...",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "errorMessage": "Failed to send message. Please try again.",
+    "successMessage": "Message sent successfully! I'll get back to you shortly :)",
+    "redirecting": "Redirecting to Home in {countdown} seconds...",
+    "goBackHome": "Go Back to Home"
+  }
+}

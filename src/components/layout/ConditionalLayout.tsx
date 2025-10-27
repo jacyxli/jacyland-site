@@ -11,7 +11,7 @@ export default function ConditionalLayout({
   children,
 }: ConditionalLayoutProps) {
   const pathname = usePathname();
-  const isResumePage = pathname === "/resume";
+  const isResumePage = pathname?.includes("/resume");
 
   return (
     <>
