@@ -118,12 +118,12 @@ const colors = {
 const styles = StyleSheet.create({
   page: {
     backgroundColor: colors.background.white,
-    padding: "45px 26px 22px 26px",
+    padding: "30px 26px 22px 20px",
     fontFamily: "NotoSansSC",
     boxSizing: "border-box",
   },
   leftCol: {
-    width: "69%",
+    width: "72%",
     flexDirection: "column",
     flex: 1,
   },
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     width: "31%",
   },
   header: {
-    marginBottom: 30,
+    marginBottom: 20,
   },
   name: {
     fontSize: 28,
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   block: {
-    marginBottom: 10,
+    marginBottom: 6,
   },
   skillsContainer: {
     flexDirection: "row",

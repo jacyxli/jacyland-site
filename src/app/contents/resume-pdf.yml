@@ -3,7 +3,7 @@ meta:
 
 basics:
   name: Jacy Li (李心安)
-  label: Multilingual Fullstack Engineer & Product Consultant | 10+ Years of Experience Aligning Technology, UX, and Business Needs
+  label: Multilingual Fullstack Engineer & Product Consultant | 10+ Years Taking Products from Client Requirements and UX Design to Fullstack Delivery
   location:
     city: Hangzhou
     country: China
@@ -13,6 +13,18 @@ basics:
   website: https://jacy-li.com
 
 work:
+  - name:
+    position: Independent Fullstack Engineer & Consultant
+    location: Remote
+    startDate: "2025.01"
+    endDate: "Present"
+    techStack: "Next.js, React, TypeScript, WeChat Mini-Program, Tailwind CSS, Figma, Python, Hugging Face, AI-assisted development"
+    summary: "Work directly with clients and researchers to turn loosely defined ideas into product requirements, UI/UX designs, technical plans, and working software, using AI-assisted development to accelerate implementation."
+    highlights:
+      - "Dreamfly — Owned end-to-end delivery of a corporate website modernization project: translated client requirements into product specs, information architecture, and CMS content models, then led UX design and technical planning in Figma"
+      - "Yanji — Leading product definition and design for a climbing-hold catalog mini-program and a web application for showcasing products and receiving customer orders"
+      - "Digital Twin research — Worked part-time as a research assistant, implementing Python pipelines and running recommender and Hugging Face LLM experiments, including dataset generation, fine-tuning preparation, data cleansing, and results processing"
+
   - name: ClassPass
     position: Senior Software Engineer
     location: Remote/Hangzhou, China
@@ -51,17 +63,6 @@ work:
       - "Built system management features using REST APIs and Jetty web components"
       - "Contributed to Python-based frameworks for simulated IO and fault injection testing"
 
-  - name:
-    position: Freelance Developer & UI Designer
-    location: Remote
-    startDate: "2014"
-    endDate: "Present"
-    highlights:
-      - "Built and deployed personal websites and blogs using React, Gatsby.js, Next.js, Tailwind CSS, Material UI, and Netlify"
-      - "Created a static archive site with crawled legacy content, searchable via Algolia"
-      - "Developed a lightweight inventory management tool using React, Firebase, and Ant Design for a small business"
-      - "Collaborated on a multiplayer math game using Vue.js, leading a full front-end redesign and code refactoring"
-
 education:
   - name: Bryn Mawr College
     location: Bryn Mawr, PA, USA
@@ -77,50 +78,53 @@ skills:
     level: Expert
     keywords:
       - React
-      - Gatsby.js
       - Next.js
-      - Vue.js
-      - WeChat Mini-Program (Native)
+      - TypeScript
+      - WeChat Mini-Program
       - Tailwind CSS
-      - Framer Motion
-  - name: Backend
+
+  - name: Backend & Data
     level: Advanced
     keywords:
       - Spring Boot
       - Ktor
       - Laravel
-  - name: Database
+      - MySQL
+      - API & Schema Design
+
+  - name: Product & UX
     level: Advanced
     keywords:
-      - MySQL
-      - Query Optimization
-      - Schema Design
-  - name: DevOps
+      - Requirements Definition
+      - Product Scoping
+      - Information Architecture
+      - UI/UX Design
+      - Figma
+
+  - name: DevOps & Testing
     level: Advanced
     keywords:
       - Docker
       - CI/CD
       - AWS
-  - name: Testing
-    level: Advanced
-    keywords:
-      - Unit Testing
-      - Tencent Cloud Test
+      - Automated Testing
       - Cypress
-  - name: Design Tools
+
+  - name: AI-assisted Engineering
     level: Advanced
     keywords:
-      - Figma
-      - Adobe XD
-      - Adobe Photoshop
-      - Adobe Illustrator
+      - Cursor & Claude Code
+      - Agent-assisted Development
+      - Prompt-driven Prototyping
+      - Hugging Face APIs
+      - LLM Data Pipelines
+
   - name: Languages
     level: Expert
     keywords:
       - Chinese (Native)
       - English (Near-native)
       - Japanese (Fluent, JLPT N1)
-
 interests:
   - Rock climbing
   - Photography

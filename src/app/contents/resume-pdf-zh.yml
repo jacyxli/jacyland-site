@@ -4,7 +4,7 @@ meta:
 basics:
   name: 李心安 (Jacy Li)
   label: 资深全栈工程师 / 产品顾问
-  label2: 10年+多端开发与产品经验，专注以技术与用户体验驱动产品成功。
+  label2: 10年+全栈开发与产品经验：从客户需求与产品定义，到UI/UX设计与全栈交付。
   location:
     city: 杭州
     country: 中国
@@ -14,6 +14,18 @@ basics:
   website: https://jacy-li.com
 
 work:
+  - name:
+    position: 独立全栈开发者 & 产品顾问
+    location: 远程
+    startDate: "2025.01"
+    endDate: "至今"
+    techStack: "Next.js, React, TypeScript, 微信小程序, Tailwind CSS, Figma, Python, Hugging Face, AI辅助开发"
+    summary: "与客户及研究者合作，将想法转化为产品需求、UI/UX设计与可用软件，借助AI辅助开发提升交付效率"
+    highlights:
+      - "Dreamfly — 独立负责企业官网改版项目：将客户需求转化为产品规格、信息架构与CMS内容模型，并主导Figma端UX设计与技术架构规划"
+      - "Yanji — 主导攀岩品牌小程序与官网的产品定义与设计，涵盖产品展示与客户下单功能"
+      - "Digital Twin研究助理 — 搭建Python数据处理流程，开展推荐系统与Hugging Face LLM实验，涵盖数据集生成、微调准备、数据清洗与结果分析"
+
   - name: ClassPass
     position: 高级软件工程师
     location: 远程/杭州，中国
@@ -52,18 +64,6 @@ work:
       - "参与了REST API与Jetty组件的系统管理功能开发"
       - "参与Python自动化测试框架的开发，包括模拟IO与故障注入测试"
 
-  - name:
-    position: 自由开发者 & UI 设计师
-    location: 远程
-    startDate: "2014"
-    endDate: "至今"
-    highlights:
-      - "为个人创作者及中小企业提供技术咨询与产品开发服务，涵盖网站搭建、UI/UX设计及br内部工具定制"
-      - "使用React、Next.js、Tailwind CSS等技术栈开发并部署多个高性能网站与博客"
-      - "构建静态归档网站，通过Algolia实现内容索引与全文搜索"
-      - "为小型商家开发轻量级库存管理工具（React + Firebase + Ant Design）"
-      - "合作开发多人在线数学游戏（Vue.js），主导前端代码重构与视觉体验全面改版"
-
 education:
   - name: 布林茅尔学院 (Bryn Mawr College)
     location: "布林莫尔, PA, 美国"
@@ -80,42 +80,38 @@ skills:
     keywords:
       - React
       - Next.js
-      - Gatsby.js
-      - Vue.js
+      - TypeScript
       - 微信小程序 (原生)
       - Tailwind CSS
-      - Framer Motion
-  - name: 后端开发
+  - name: 后端与数据库
     level: 高级
     keywords:
       - Spring Boot
       - Ktor
       - Laravel
-  - name: 数据库
+      - MySQL
+      - API与Schema设计
+  - name: 产品与设计
     level: 高级
     keywords:
-      - MySQL
-      - MongoDB
-  - name: DevOps & Infrastructure
+      - 需求梳理
+      - 产品定义
+      - 信息架构
+      - UI/UX设计
+      - Figma
+  - name: DevOps与测试
     level: 高级
     keywords:
       - Docker
       - CI/CD
       - AWS
-      - Firebase
-      - 腾讯云
-  - name: 测试
-    level: 高级
-    keywords:
       - 腾讯云测
       - Cypress
-  - name: 设计工具
+  - name: AI工具
     level: 高级
     keywords:
-      - Figma
-      - Adobe XD
-      - Adobe Photoshop
-      - Adobe Illustrator
+      - AI辅助开发 (Cursor / Claude Code)
+      - Hugging Face API
   - name: 语言
     level: 专家
     keywords:

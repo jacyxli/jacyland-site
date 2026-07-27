@@ -36,6 +36,20 @@
     "downloadResume": "下载完整简历",
     "jobs": [
       {
+        "name": "自由职业 & 独立咨询",
+        "position": "独立全栈开发者 & 产品顾问",
+        "location": "远程",
+        "startDate": "2025年1月",
+        "endDate": "至今",
+        "summary": "与客户及研究者直接合作，将想法转化为产品需求、UI/UX设计、技术方案与可用软件。",
+        "techStack": "Next.js, React, TypeScript, 微信小程序, Tailwind CSS, Figma, Python, Hugging Face",
+        "highlights": [
+          "Dreamfly：主导客户访谈与需求梳理，将非技术背景客户的业务目标转化为产品规格、信息架构与CMS内容模型，并设计网站结构、UX与Figma原型，规划基于Next.js/React/TypeScript的CMS驱动技术架构",
+          "Yanji：主导攀岩支点品牌小程序与官网的产品定义与设计，涵盖产品展示、客户下单等功能",
+          "Digital Twin研究助理：搭建Python数据处理流程，开展推荐系统与Hugging Face LLM实验，涵盖数据集生成、微调准备、数据清洗与结果分析"
+        ]
+      },
+      {
         "name": "ClassPass",
         "position": "高级软件工程师",
         "location": "远程/杭州，中国",
@@ -79,21 +93,6 @@
           "主导开发了用于NetApp FlashRay全闪存阵列的桌面安装系统",
           "参与了REST API与Jetty组件的系统管理功能开发",
           "参与Python自动化测试框架的开发，包括模拟IO与故障注入测试"
-        ]
-      },
-      {
-        "name": "Freelance",
-        "position": "自由开发者 & UI 设计师",
-        "location": "远程",
-        "startDate": "2014年",
-        "endDate": "至今",
-        "summary": "为个人创作者及中小企业提供技术咨询与产品开发服务，涵盖工作包括个人网站搭建、UI/UX设计，静态内容归档、内部工具和休闲游戏。",
-        "techStack": "React, Gatsby.js, Next.js, Tailwind CSS, Firebase, Ant Design, Vue.js, WebSocket, 腾讯云开发",
-        "highlights": [
-          "使用React、Gatsby.js、Next.js、Tailwind CSS和Material UI在Netlify上构建和部署个人网站和博客",
-          "构建静态归档网站，通过Algolia实现内容索引与全文搜索",
-          "为小型商家开发轻量级库存管理工具（React + Firebase + Ant Design）",
-          "合作开发多人在线数学游戏（Vue.js + Websocket），主导前端代码重构与视觉体验全面改版"
         ]
       }
     ]

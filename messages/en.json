@@ -36,6 +36,20 @@
     "downloadResume": "Download Full Resume",
     "jobs": [
       {
+        "name": "Freelance & Consulting",
+        "position": "Independent Fullstack Engineer & Consultant",
+        "location": "Remote",
+        "startDate": "Jan 2025",
+        "endDate": "Present",
+        "summary": "Working directly with clients and researchers to turn loosely defined ideas into product requirements, UI/UX designs, technical plans, and working software.",
+        "techStack": "Next.js, React, TypeScript, WeChat Mini-Program, Tailwind CSS, Figma, Python, Hugging Face",
+        "highlights": [
+          "Dreamfly: Led client discovery sessions with non-technical stakeholders to translate business goals into product specifications, information architecture, and CMS content models, then designed the site structure, UX, and Figma prototypes, and defined the CMS-driven technical architecture for a Next.js/React/TypeScript platform",
+          "Yanji: Led product definition and design for a climbing-hold catalog mini-program and a web application for showcasing products and receiving customer orders",
+          "Digital Twin research: Worked part-time as a research assistant, implementing Python pipelines and running recommender and Hugging Face LLM experiments, including dataset generation, fine-tuning preparation, data cleansing, and results processing"
+        ]
+      },
+      {
         "name": "ClassPass",
         "position": "Senior Software Engineer",
         "location": "Remote/Hangzhou, China",
@@ -79,21 +93,6 @@
           "Developed the FlashRay Setup Wizard for turnkey installation of NetApp's All Flash Array storage system",
           "Built system management features via REST APIs and Jetty web server components",
           "Enhanced Python-based frameworks for automated IO testing and fault injection"
-        ]
-      },
-      {
-        "name": "Freelance Developer & UI Developer",
-        "position": "Freelance Fullstack Developer & Designer",
-        "location": "Remote",
-        "startDate": "2014",
-        "endDate": "Present",
-        "summary": "Designed and developed small-scale web projects for individuals and small businesses, focusing on frontend implementation and UI/UX design. Work includes personal websites, static content archives, internal tools, and casual games.",
-        "techStack": "React, Gatsby.js, Next.js, Tailwind CSS, Firebase, Ant Design, Vue.js, WebSocket, Tencent Cloudbase",
-        "highlights": [
-          "Built and deployed personal websites and blogs using React, Gatsby.js, Next.js, Tailwind CSS, and Material UI on Netlify",
-          "Created a static archive site by crawling content from a defunct website and indexing it with Algolia for search",
-          "Developed a simple inventory management app using React, Firebase, and Ant Design",
-          "Contributed to a multiplayer math game with Vue.js and WebSocket, and led the UI redesign"
         ]
       }
     ]
